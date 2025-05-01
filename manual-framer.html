@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><zh>乱斗派手动组合</zh><en>RandoPets Manual Combo</en></title>
+    <style>
+        /* --- Base Styles (Adapted from previous artifacts & style guides) --- */
+        :root {
+            --primary-color: #00AABB;
+            --secondary-color: #EE6688;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+            --text-muted: #6B7280;
+            --bg-main: #00AABB;
+            --bg-card: #FFFFFF;
+            --bg-accent: rgba(0, 0, 0, 0.1);
+            --list-icon-size: 60px; /* Size of icons in the selection lists */
+            --list-height: 300px; /* Max height for the scrollable lists */
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding-top: 5rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            padding: 1rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- Language Switching (zh/en tags) --- */
+        en { display: none; }
+        zh { display: inline; }
+        body.show-en zh { display: none !important; }
+        body.show-en en { display: inline !important; }
+
+        .lang-toggle-container {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+
+        .toggle-button { /* Secondary Button Style */
+            padding: 0.3rem 0.6rem;
+            font-size: 0.8rem;
+            background-color: var(--bg-card);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .toggle-button:hover {
+            background-color: #F0F9FF;
+            color: #006677;
+        }
+
+        /* --- Title & Instructions --- */
+        .main-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .instructions {
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+            color: #ddeeee;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* --- Icon Selection Lists --- */
+        .selection-lists-container {
+            display: flex;
+            justify-content: space-around; /* Distribute lists */
+            gap: 1rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 1000px; /* Limit overall width */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .icon-list-wrapper {
+             flex: 1; /* Allow lists to share space */
+             min-width: 200px; /* Minimum width before wrapping */
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+        }
+
+        .list-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            background-color: var(--bg-accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+        }
+
+        .icon-list-container {
+            width: 100%;
+            max-height: var(--list-height);
+            overflow-y: auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap; /* Allow icons to wrap within the list */
+            justify-content: center; /* Center icons horizontally */
+            gap: 0.5rem; /* Gap between icons */
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        .icon-list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .icon-list-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        .icon-list-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        .icon-list-container::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+
+        .selectable-icon {
+            width: var(--list-icon-size);
+            height: var(--list-icon-size);
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid transparent; /* Placeholder for selection border */
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+            transition: transform 0.1s ease, border-color 0.2s ease, background-color 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .selectable-icon:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .selectable-icon.selected {
+            border-color: var(--secondary-color);
+            background-color: rgba(238, 102, 136, 0.2); /* Light pinkish background */
+            transform: scale(1.02); /* Slight scale to indicate selection */
+            box-shadow: 0 0 8px rgba(238, 102, 136, 0.5);
+        }
+
+
+        /* --- Results Area (Cards - Styling reused) --- */
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 1rem;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem auto;
+            max-width: 1000px;
+            min-height: 0; /* Reserve space */
+            opacity: 0; /* Hidden initially or when incomplete */
+            transition: opacity 0.3s ease-in-out;
+        }
+         .icon-container.visible {
+             opacity: 1;
+         }
+        .icon-card { /* Styling reused */
+            background-color: var(--bg-card);
+            color: var(--text-dark);
+            border-radius: 0.75rem;
+            padding: 1.2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.8rem;
+            width: 250px;
+            box-sizing: border-box;
+        }
+        .icon-image { width: 5rem; height: 5rem; object-fit: contain; flex-shrink: 0; border-radius: 0.25rem; }
+        .icon-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .icon-title { font-weight: 700; font-size: 1.125rem; color: var(--text-dark); margin: 0 0 0.25rem 0; }
+        .icon-desc { font-size: 0.875rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+
+        /* --- Combo Code Display (Styling reused) --- */
+        .code-display-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #combo-code { font-family: 'Courier New', Courier, monospace; font-size: 1.3rem; font-weight: bold; color: var(--text-light); letter-spacing: 1px; }
+        #copy-code-btn { background-color: var(--secondary-color); color: var(--text-light); border: none; padding: 0.4rem 0.8rem; border-radius: 5px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: background-color 0.2s; }
+        #copy-code-btn:hover { background-color: #FF89A3; }
+        #copy-code-btn:active { transform: scale(0.98); }
+        #copy-feedback { font-size: 0.8rem; color: var(--secondary-color); font-weight: bold; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        #copy-feedback.visible { opacity: 1; }
+
+        /* --- Navigation Buttons --- */
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-button { /* Style for placeholder/inactive buttons */
+             background-color: var(--bg-card);
+             color: var(--primary-color);
+             padding: 0.5rem 1rem;
+             font-size: 0.9rem;
+             font-weight: 600;
+             border-radius: 0.375rem;
+             border: 1px solid var(--primary-color);
+             cursor: pointer;
+             transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+             text-decoration: none;
+             display: inline-block;
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+         }
+         .nav-button:hover {
+             background-color: #F0F9FF;
+             color: #006677;
+             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+         }
+         .nav-button.active { /* Style for the active/current page button */
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-color: var(--secondary-color);
+            font-weight: 700;
+            cursor: default;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+         }
+         .nav-button.active:hover { /* Prevent hover effect on active button */
+             background-color: var(--secondary-color);
+             color: var(--text-light);
+             box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+         }
+
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            body { padding-top: 6rem; }
+            .container { width: 95%; }
+            .main-title { font-size: 1.8rem; }
+            .selection-lists-container { flex-direction: column; align-items: center; }
+            .icon-list-wrapper { width: 90%; max-width: 400px; min-width: unset; }
+            :root { --list-height: 200px; --list-icon-size: 50px; }
+            .icon-container { flex-direction: column; align-items: center; }
+            .icon-card { width: 90%; max-width: 350px; }
+            .code-display-container { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
+            #combo-code { font-size: 1.1rem; }
+            .navigation-buttons { gap: 0.5rem; }
+            .nav-button { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+        }
+         @media (max-width: 480px) {
+             .main-title { font-size: 1.6rem; }
+             :root { --list-icon-size: 45px; }
+         }
+
+    </style>
+</head>
+<body>
+    <div class="lang-toggle-container">
+        <button id="lang-toggle" class="toggle-button">
+            <zh>EN</zh><en>中</en>
+        </button>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title">
+            <zh>手动组合</zh><en>Manual Combo</en>
+        </h1>
+
+        <p class="instructions">
+            <zh>从下面的三个列表中分别选择一个图标（种类、职业、能力），系统将立即为你展示组合结果和对应的快捷代码。自由搭配，创造属于你的独特角色吧！</zh>
+            <en>Select one icon from each of the three lists below (Species, Profession, Ability). The system will instantly show you the combined result and the corresponding shortcut code. Mix and match freely to create your unique character!</en>
+        </p>
+
+        <div class="selection-lists-container">
+            <div class="icon-list-wrapper">
+                <div class="list-title"><zh>种类</zh><en>Species</en></div>
+                <div class="icon-list-container" id="species-list">
+                    <!-- Species icons will be populated here -->
+                </div>
+            </div>
+            <div class="icon-list-wrapper">
+                 <div class="list-title"><zh>职业</zh><en>Profession</en></div>
+                <div class="icon-list-container" id="profession-list">
+                    <!-- Profession icons will be populated here -->
+                </div>
+            </div>
+            <div class="icon-list-wrapper">
+                 <div class="list-title"><zh>能力</zh><en>Ability</en></div>
+                <div class="icon-list-container" id="ability-list">
+                    <!-- Ability icons will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="icon-container" class="icon-container">
+            <!-- Result cards will be generated here -->
+        </div>
+
+        <div class="code-display-container">
+            <span id="combo-code">R000000</span>
+            <button id="copy-code-btn">
+                <zh>复制</zh><en>Copy</en>
+            </button>
+            <span id="copy-feedback">
+                <zh>已复制!</zh><en>Copied!</en>
+            </span>
+        </div>
+
+ 
+
+    </div>
+
+    <script>
+        // --- Embedded Data (Species, Abilities, Professions with 2-digit IDs) ---
+        const speciesData = [
+          { "_id": "S00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "S01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS1.png", "name": { "en": "Cat", "zh": "猫" }, "represents": { "en": "Elegant Feline Animals", "zh": "优雅的猫科动物" }, "order": 1 },
+          { "_id": "S02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS2.png", "name": { "en": "Dog", "zh": "狗" }, "represents": { "en": "Loyal Canine Animals", "zh": "忠诚的犬类动物" }, "order": 2 },
+          { "_id": "S03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS3.png", "name": { "en": "Rabbit", "zh": "兔" }, "represents": { "en": "Cute Small Animals", "zh": "可爱的小型动物" }, "order": 3 },
+          { "_id": "S04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS4.png", "name": { "en": "Insect", "zh": "虫" }, "represents": { "en": "Tiny but Numerous Creatures", "zh": "微小但庞大的生物群" }, "order": 4 },
+          { "_id": "S05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS5.png", "name": { "en": "Horse", "zh": "马" }, "represents": { "en": "Majestic Large Mammals", "zh": "雄伟的大型哺乳动物" }, "order": 5 },
+          { "_id": "S06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS6.png", "name": { "en": "Bird", "zh": "鸟" }, "represents": { "en": "Feathered Flying Creatures", "zh": "有羽毛的飞行生物" }, "order": 6 },
+          { "_id": "S07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS7.png", "name": { "en": "Mouse", "zh": "鼠" }, "represents": { "en": "Tiny Rodents", "zh": "微小的啮齿动物" }, "order": 7 },
+          { "_id": "S08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS8.png", "name": { "en": "Fish", "zh": "鱼" }, "represents": { "en": "Aquatic Creatures", "zh": "水生生物" }, "order": 8 },
+          { "_id": "S09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS9.png", "name": { "en": "Reptile", "zh": "爬行" }, "represents": { "en": "Cold-blooded Reptiles", "zh": "冷血的爬行动物" }, "order": 9 },
+          { "_id": "S10", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS10.png", "name": { "en": "Fox", "zh": "狐" }, "represents": { "en": "Cunning Wild Canids", "zh": "狡猾的野生犬科动物" }, "order": 10 },
+          { "_id": "S11", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS11.png", "name": { "en": "Monkey", "zh": "猴" }, "represents": { "en": "Intelligent Primates", "zh": "聪明的灵长类动物" }, "order": 11 },
+          { "_id": "S12", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS12.png", "name": { "en": "Pig", "zh": "猪" }, "represents": { "en": "Plump Large Creatures", "zh": "胖胖的大型生物" }, "order": 12 },
+          { "_id": "S13", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS13.png", "name": { "en": "Bear", "zh": "熊" }, "represents": { "en": "Powerful Omnivores", "zh": "强大的杂食动物" }, "order": 13 },
+          { "_id": "S14", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS14.png", "name": { "en": "Plant", "zh": "植物" }, "represents": { "en": "Botanical Life Forms", "zh": "植物生命形式" }, "order": 14 },
+          { "_id": "S15", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS15.png", "name": { "en": "Alien", "zh": "外星" }, "represents": { "en": "Strange Non-Earth Organisms", "zh": "奇异的非地球生物" }, "order": 15 }
+        ];
+        const abilitiesData = [
+          { "_id": "A00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "A01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA1.png", "name": { "en": "Fire", "zh": "火" }, "represents": { "en": "Flame, Heat, Burning, Passion", "zh": "火焰、热力、燃烧、热情" }, "order": 1 },
+          { "_id": "A02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA2.png", "name": { "en": "Water", "zh": "水" }, "represents": { "en": "Liquid, Flow, Healing, Emotion", "zh": "液体、流动、治愈、情感" }, "order": 2 },
+          { "_id": "A03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA3.png", "name": { "en": "Darkness", "zh": "黑暗" }, "represents": { "en": "Shadow, Fear, Mystery, Stealth", "zh": "暗影、恐惧、神秘、隐匿" }, "order": 3 },
+          { "_id": "A04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA4.png", "name": { "en": "Wind", "zh": "风" }, "represents": { "en": "Airflow, Speed, Freedom, Agility", "zh": "气流、速度、自由、灵活性" }, "order": 4 },
+          { "_id": "A05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA5.png", "name": { "en": "Lightning", "zh": "闪电" }, "represents": { "en": "Electricity, Energy, Speed, Wisdom", "zh": "电、能量、速度、智慧" }, "order": 5 },
+          { "_id": "A06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA6.png", "name": { "en": "Earth", "zh": "大地" }, "represents": { "en": "Stone, Stability, Strength, Nature", "zh": "岩石、稳定、力量、自然" }, "order": 6 },
+          { "_id": "A07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA7.png", "name": { "en": "Magic", "zh": "魔法" }, "represents": { "en": "Mystical Power, Spells, Change, Miracles", "zh": "神秘力量、咒语、变化、奇迹" }, "order": 7 },
+          { "_id": "A08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA8.png", "name": { "en": "Connection", "zh": "连接" }, "represents": { "en": "Network, Relationships, Communication, Teamwork", "zh": "网络、关系、沟通、团队" }, "order": 8 },
+          { "_id": "A09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA9.png", "name": { "en": "Technology", "zh": "科技" }, "represents": { "en": "Machinery, Invention, Intelligence, Progress", "zh": "机械、发明、智能、进步" }, "order": 9 },
+          { "_id": "A10", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA10.png", "name": { "en": "Crystal", "zh": "水晶" }, "represents": { "en": "Purity, Energy Storage, Protection, Value", "zh": "纯净、能量储存、防护、价值" }, "order": 10 },
+          { "_id": "A11", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA11.png", "name": { "en": "Heart", "zh": "心灵" }, "represents": { "en": "Emotion, Love, Healing, Spirit", "zh": "情感、爱、治愈、精神" }, "order": 11 },
+          { "_id": "A12", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA12.png", "name": { "en": "Space", "zh": "空间" }, "represents": { "en": "Universe, Spacetime, Infinity, Exploration", "zh": "宇宙、时空、无限、探索" }, "order": 12 }
+        ];
+        const professionsData = [
+          { "_id": "C00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "C01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC1.png", "name": { "en": "Wand", "zh": "魔法杖" }, "represents": { "en": "Magic User, Spellcaster", "zh": "魔法使用者、施法者" }, "order": 1 },
+          { "_id": "C02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC2.png", "name": { "en": "Book", "zh": "书籍" }, "represents": { "en": "Scholar, Knowledge Seeker", "zh": "学者、知识探索者" }, "order": 2 },
+          { "_id": "C03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC3.png", "name": { "en": "Harp", "zh": "竖琴" }, "represents": { "en": "Musical Artist, Sound Manipulator", "zh": "音乐艺术家、声音操控者" }, "order": 3 },
+          { "_id": "C04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC4.png", "name": { "en": "Crown", "zh": "王冠" }, "represents": { "en": "Leader, Ruler", "zh": "领导者、统治者" }, "order": 4 },
+          { "_id": "C05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC5.png", "name": { "en": "Sword", "zh": "剑" }, "represents": { "en": "Agile Warrior, Protector", "zh": "敏捷战士、守护者" }, "order": 5 },
+          { "_id": "C06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC6.png", "name": { "en": "Wrench", "zh": "扳手" }, "represents": { "en": "Technical Expert, Maker", "zh": "技术专家、制造者" }, "order": 6 },
+          { "_id": "C07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC7.png", "name": { "en": "Palette", "zh": "调色板" }, "represents": { "en": "Artistic Creator, Visual Expert", "zh": "艺术创造者、视觉专家" }, "order": 7 },
+          { "_id": "C08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC8.png", "name": { "en": "Arrow", "zh": "箭矢" }, "represents": { "en": "Ranged Attacker, Precision Expert", "zh": "远程攻击者、精准专家" }, "order": 8 },
+          { "_id": "C09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC9.png", "name": { "en": "Axe", "zh": "斧头" }, "represents": { "en": "Strength Warrior, Destroyer", "zh": "力量战士、破坏者" }, "order": 9 }
+        ];
+
+        // --- DOM Elements ---
+        const speciesListContainer = document.getElementById('species-list');
+        const professionListContainer = document.getElementById('profession-list');
+        const abilityListContainer = document.getElementById('ability-list');
+        const iconContainer = document.getElementById('icon-container'); // Results card area
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const comboCodeDisplay = document.getElementById('combo-code');
+        const copyCodeBtn = document.getElementById('copy-code-btn');
+        const copyFeedback = document.getElementById('copy-feedback');
+        const body = document.body;
+        const titleElement = document.querySelector('title');
+
+        // --- State ---
+        let currentLang = 'zh'; // 'zh' or 'en'
+        let copyTimeout = null;
+
+        // --- Functions ---
+
+        // Function to create a single result card (reused)
+        function createIconCard(itemData) {
+            const card = document.createElement('div');
+            card.className = 'icon-card';
+
+            const img = document.createElement('img');
+            img.src = itemData.imageUrl;
+            img.alt = currentLang === 'zh' ? itemData.name.zh : itemData.name.en;
+            img.className = 'icon-image';
+
+            const details = document.createElement('div');
+            details.className = 'icon-details';
+
+            const title = document.createElement('h3');
+            title.className = 'icon-title';
+            title.innerHTML = `<zh>${itemData.name.zh}</zh><en>${itemData.name.en}</en>`;
+
+            const desc = document.createElement('p');
+            desc.className = 'icon-desc';
+            desc.innerHTML = `<zh>${itemData.represents.zh}</zh><en>${itemData.represents.en}</en>`;
+
+            details.appendChild(title);
+            details.appendChild(desc);
+            card.appendChild(img);
+            card.appendChild(details);
+
+            return card;
+        }
+
+        // Function to populate an icon list
+        function populateIconList(container, data) {
+            container.innerHTML = ''; // Clear previous icons
+            data.forEach((item, index) => {
+                const img = document.createElement('img');
+                img.src = item.imageUrl;
+                img.alt = currentLang === 'zh' ? item.name.zh : item.name.en;
+                img.className = 'selectable-icon';
+                img.dataset.id = item._id; // Store the ID (e.g., S01)
+                img.dataset.index = index; // Store the index in the array
+
+                img.addEventListener('click', handleIconSelection);
+                container.appendChild(img);
+            });
+        }
+
+        // Handle icon selection in a list
+        function handleIconSelection(event) {
+            const clickedIcon = event.target;
+            const listContainer = clickedIcon.parentElement;
+
+            // Remove 'selected' class from siblings within the same list
+            const siblings = listContainer.querySelectorAll('.selectable-icon');
+            siblings.forEach(icon => {
+                if (icon !== clickedIcon) {
+                    icon.classList.remove('selected');
+                }
+            });
+
+            // Toggle 'selected' class on the clicked icon
+            clickedIcon.classList.toggle('selected'); // Allows deselecting by clicking again
+
+            updateResults();
+        }
+
+        // Update results area and combo code based on selections
+        function updateResults() {
+            const selectedSpeciesIcon = speciesListContainer.querySelector('.selectable-icon.selected');
+            const selectedProfessionIcon = professionListContainer.querySelector('.selectable-icon.selected');
+            const selectedAbilityIcon = abilityListContainer.querySelector('.selectable-icon.selected');
+
+            // Check if all three lists have a selection
+            if (selectedSpeciesIcon && selectedProfessionIcon && selectedAbilityIcon) {
+                const speciesIndex = parseInt(selectedSpeciesIcon.dataset.index);
+                const professionIndex = parseInt(selectedProfessionIcon.dataset.index);
+                const abilityIndex = parseInt(selectedAbilityIcon.dataset.index);
+
+                const speciesDataSelected = speciesData[speciesIndex];
+                const professionDataSelected = professionsData[professionIndex];
+                const abilityDataSelected = abilitiesData[abilityIndex];
+
+                // Update Combo Code (using IDs which already have 2 digits)
+                // Order: R + AbilityID[1:] + ProfessionID[1:] + SpeciesID[1:]
+                const codeA = abilityDataSelected._id.substring(1); // A01 -> 01
+                const codeC = professionDataSelected._id.substring(1); // C05 -> 05
+                const codeS = speciesDataSelected._id.substring(1); // S12 -> 12
+                comboCodeDisplay.textContent = `R${codeA}${codeC}${codeS}`;
+
+                // Update Result Cards
+                iconContainer.innerHTML = ''; // Clear previous cards
+                // Order: Species, Profession, Ability
+                iconContainer.appendChild(createIconCard(speciesDataSelected));
+                iconContainer.appendChild(createIconCard(professionDataSelected));
+                iconContainer.appendChild(createIconCard(abilityDataSelected));
+                iconContainer.classList.add('visible'); // Show results area
+
+            } else {
+                // If not all selected, clear results and reset code
+                iconContainer.innerHTML = '';
+                iconContainer.classList.remove('visible'); // Hide results area
+                comboCodeDisplay.textContent = 'R000000';
+            }
+             // Update language display within dynamically created cards if needed
+             updateLanguageClass();
+        }
+
+
+        // --- Language Toggle ---
+        function updateLanguageClass() {
+            if (currentLang === 'en') {
+                body.classList.remove('lang-zh'); // Ensure lang-zh is removed
+                body.classList.add('show-en'); // Add show-en
+                document.documentElement.lang = 'en';
+            } else {
+                body.classList.remove('show-en'); // Ensure show-en is removed
+                body.classList.add('lang-zh'); // Add lang-zh (though default CSS handles this)
+                document.documentElement.lang = 'zh-CN';
+            }
+            // Update alt text for list icons
+            document.querySelectorAll('.selectable-icon').forEach(img => {
+                const id = img.dataset.id;
+                let dataSet;
+                if (id.startsWith('S')) dataSet = speciesData;
+                else if (id.startsWith('C')) dataSet = professionsData;
+                else if (id.startsWith('A')) dataSet = abilitiesData;
+                else return;
+
+                const item = dataSet.find(d => d._id === id);
+                if (item) {
+                    img.alt = currentLang === 'zh' ? item.name.zh : item.name.en;
+                }
+            });
+        }
+
+        function updateDocumentTitle() {
+            if (titleElement) {
+                const zhTitle = titleElement.querySelector('zh');
+                const enTitle = titleElement.querySelector('en');
+                if (zhTitle && enTitle) {
+                    document.title = currentLang === 'zh' ? zhTitle.textContent : enTitle.textContent;
+                }
+            }
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+            localStorage.setItem('preferredLanguage', currentLang);
+            updateLanguageClass();
+            updateDocumentTitle();
+            // Re-render results if visible to update card language
+            if (iconContainer.classList.contains('visible')) {
+                 updateResults();
+            }
+        });
+
+        // --- Copy Code ---
+        copyCodeBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(comboCodeDisplay.textContent).then(() => {
+                copyFeedback.classList.add('visible');
+                clearTimeout(copyTimeout); // Clear previous timeout if any
+                copyTimeout = setTimeout(() => {
+                    copyFeedback.classList.remove('visible');
+                }, 1500); // Hide after 1.5 seconds
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+                // Optionally provide user feedback about the failure
+            });
+        });
+
+        // --- Initialization ---
+        function initializePage() {
+            // Set language
+            const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+            currentLang = savedLang;
+            updateLanguageClass();
+            updateDocumentTitle();
+
+            // Populate lists
+            populateIconList(speciesListContainer, speciesData);
+            populateIconList(professionListContainer, professionsData);
+            populateIconList(abilityListContainer, abilitiesData);
+
+            // Initial results update (will show empty)
+            updateResults();
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
+
+    </script>
+</body>
+</html>

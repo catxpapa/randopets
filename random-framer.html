@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><zh>随机选择</zh><en>Random Select</en></title>
+    <style>
+        /* --- Base Styles (from previous artifact & style guides) --- */
+        :root {
+            --primary-color: #00AABB;
+            --secondary-color: #EE6688;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+            --text-muted: #6B7280;
+            --bg-main: #00AABB;
+            --bg-card: #FFFFFF;
+            --bg-accent: rgba(0, 0, 0, 0.1);
+            --reel-height: 100px; /* Height of the visible reel window */
+            --icon-size: 80px; /* Size of icons within the reel */
+            --icon-margin: 10px; /* Vertical margin around icons in the reel */
+            --item-height: calc(var(--icon-size) + 2 * var(--icon-margin)); /* Total height per item */
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding-top: 5rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            padding: 1rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- Language Switching (zh/en tags) --- */
+        en { display: none; }
+        zh { display: inline; }
+        body.show-en zh { display: none !important; }
+        body.show-en en { display: inline !important; }
+
+        .lang-toggle-container {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+
+        .toggle-button { /* Secondary Button Style */
+            padding: 0.3rem 0.6rem;
+            font-size: 0.8rem;
+            background-color: var(--bg-card);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .toggle-button:hover {
+            background-color: #F0F9FF;
+            color: #006677;
+        }
+
+        /* --- Title & Instructions --- */
+        .main-title {
+            font-size: 2.25rem; /* Larger title */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .instructions { /* intro-text style */
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+            color: #ddeeee;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* --- Slot Machine Reels --- */
+        .reels-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            perspective: 1000px; /* For potential 3D effects if desired */
+        }
+
+        .reel-window {
+            width: calc(var(--icon-size) + 2 * var(--icon-margin) + 10px); /* Icon size + margins + padding */
+            height: var(--reel-height);
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+        /* Center line indicator */
+         .reel-window::before {
+             content: '';
+             position: absolute;
+             top: 50%;
+             left: 0;
+             right: 0;
+             height: 2px;
+             background-color: rgba(255, 80, 120, 0.7); /* Highlight color */
+             transform: translateY(-1px);
+             z-index: 5;
+             box-shadow: 0 0 5px rgba(255, 80, 120, 0.9);
+         }
+
+
+        .reel-strip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Transitions managed by JS */
+        }
+
+        .reel-strip img {
+            width: var(--icon-size);
+            height: var(--icon-size);
+            margin: var(--icon-margin) 0;
+            object-fit: contain;
+            flex-shrink: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        /* --- Action Button --- */
+        .action-button-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .primary-button { /* Spin Button Style */
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.75rem 2rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.1s ease, opacity 0.3s ease;
+            min-width: 180px; /* Ensure button size consistency */
+        }
+        .primary-button:hover {
+            background-color: #FF89A3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        .primary-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        }
+        .primary-button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+            opacity: 0.7;
+        }
+
+        /* --- Results Area (Cards) --- */
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* Make cards same height */
+            gap: 1rem;
+            padding: 0 1rem;
+            flex-wrap: no-wrap;
+            margin: 1.5rem auto;
+            max-width: 1000px;
+            min-height: 0px; /* Reserve space even when empty */
+            /* Initially hidden/empty appearance */
+             opacity: 0;
+             transition: opacity 0.5s ease-in-out 0.2s; /* Delay opacity transition slightly */
+        }
+         .icon-container.visible {
+             opacity: 1;
+         }
+
+        .icon-card {
+            background-color: var(--bg-card);
+            color: var(--text-dark);
+            border-radius: 0.75rem;
+            padding: 1.2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.8rem;
+            width: 250px;
+            box-sizing: border-box;
+        }
+        .icon-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .icon-image {
+            width: 5rem;
+            height: 5rem;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 0.25rem;
+        }
+        .icon-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .icon-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            margin: 0 0 0.25rem 0;
+            display:none;
+        }
+        .icon-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* --- Combo Code Display --- */
+        .code-display-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem; /* Space above code */
+            margin-bottom: 2rem; /* Space below code */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #combo-code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+        #copy-code-btn { /* Secondary Button Style */
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        #copy-code-btn:hover {
+            background-color: #FF89A3;
+        }
+        #copy-code-btn:active {
+             transform: scale(0.98);
+         }
+        #copy-feedback {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #copy-feedback.visible {
+            opacity: 1;
+        }
+
+        /* --- Placeholder Button --- */
+        .placeholder-button-container {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+        .secondary-button { /* Style for placeholder */
+             background-color: var(--bg-card);
+             color: var(--primary-color);
+             padding: 0.5rem 1rem;
+             font-size: 0.9rem;
+             font-weight: 600;
+             border-radius: 0.375rem;
+             border: 1px solid var(--primary-color);
+             cursor: pointer;
+             transition: background-color 0.2s, color 0.2s;
+             text-decoration: none; /* If using <a> */
+             display: inline-block;
+         }
+         .secondary-button:hover {
+             background-color: #F0F9FF;
+             color: #006677;
+         }
+
+ /* --- Navigation Buttons --- */
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-button { /* Style for placeholder/inactive buttons */
+             background-color: var(--bg-card);
+             color: var(--primary-color);
+             padding: 0.5rem 1rem;
+             font-size: 0.9rem;
+             font-weight: 600;
+             border-radius: 0.375rem;
+             border: 1px solid var(--primary-color);
+             cursor: pointer;
+             transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+             text-decoration: none;
+             display: inline-block;
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+         }
+         .nav-button:hover {
+             background-color: #F0F9FF;
+             color: #006677;
+             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+         }
+         .nav-button.active { /* Style for the active/current page button */
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-color: var(--secondary-color);
+            font-weight: 700;
+            cursor: default;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+         }
+         .nav-button.active:hover { /* Prevent hover effect on active button */
+             background-color: var(--secondary-color);
+             color: var(--text-light);
+             box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+         }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            body { padding-top: 6rem; }
+            .container { width: 95%; }
+            .main-title { font-size: 1.8rem; }
+            .reels-container { gap: 0.5rem; }
+            :root {
+                --icon-size: 60px;
+                --reel-height: 80px;
+                --icon-margin: 8px;
+            }
+            .icon-container { flex-direction: column; align-items: center; }
+            .icon-card { width: 90%; max-width: 350px; }
+            .code-display-container { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
+            #combo-code { font-size: 1.1rem; }
+            .primary-button { padding: 0.6rem 1.5rem; font-size: 1.1rem; }
+        }
+         @media (max-width: 480px) {
+             .main-title { font-size: 1.6rem; }
+             :root {
+                 --icon-size: 50px;
+                 --reel-height: 70px;
+                 --icon-margin: 5px;
+             }
+             .reels-container {
+                 /* Adjust layout further if needed */
+             }
+         }
+
+    </style>
+</head>
+<body>
+    <div class="lang-toggle-container">
+        <button id="lang-toggle" class="toggle-button">
+            <zh>EN</zh><en>中</en>
+        </button>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title">
+            <zh>随机选择</zh><en>Random Select</en>
+        </h1>
+
+        <p class="instructions">
+            <zh>点击下方按钮，系统会为你随机组合出三个有趣的图标。你可以根据这些图标自由联想，创造属于自己的角色和故事。每次组合都不一样，快来试试看会出现什么新奇的创意吧！</zh>
+            <en>Click the button below, and the system will randomly combine three interesting icons for you. You can freely associate based on these icons to create your own characters and stories. Each combination is different, come try it out and see what novel ideas emerge!</en>
+        </p>
+
+        <div class="reels-container">
+            <div class="reel-window"><div class="reel-strip" id="reel1"></div></div>
+            <div class="reel-window"><div class="reel-strip" id="reel2"></div></div>
+            <div class="reel-window"><div class="reel-strip" id="reel3"></div></div>
+        </div>
+
+        <div class="action-button-container">
+            <button id="spin-button" class="primary-button">
+                <zh>试试手气</zh><en>Try Your Luck</en>
+            </button>
+        </div>
+
+        <div id="icon-container" class="icon-container">
+            <!-- Result cards will be generated here -->
+        </div>
+
+        <div class="code-display-container">
+            <span id="combo-code">R000000</span>
+            <button id="copy-code-btn">
+                <zh>复制</zh><en>Copy</en>
+            </button>
+            <span id="copy-feedback">
+                <zh>已复制!</zh><en>Copied!</en>
+            </span>
+        </div>
+
+
+    </div>
+
+    <script>
+        // --- Embedded Data (Species, Abilities, Professions with 2-digit IDs) ---
+        const speciesData = [
+          { "_id": "S00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "S01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS1.png", "name": { "en": "Cat", "zh": "猫" }, "represents": { "en": "Elegant Feline Animals", "zh": "优雅的猫科动物" }, "order": 1 },
+          { "_id": "S02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS2.png", "name": { "en": "Dog", "zh": "狗" }, "represents": { "en": "Loyal Canine Animals", "zh": "忠诚的犬类动物" }, "order": 2 },
+          { "_id": "S03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS3.png", "name": { "en": "Rabbit", "zh": "兔" }, "represents": { "en": "Cute Small Animals", "zh": "可爱的小型动物" }, "order": 3 },
+          { "_id": "S04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS4.png", "name": { "en": "Insect", "zh": "虫" }, "represents": { "en": "Tiny but Numerous Creatures", "zh": "微小但庞大的生物群" }, "order": 4 },
+          { "_id": "S05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS5.png", "name": { "en": "Horse", "zh": "马" }, "represents": { "en": "Majestic Large Mammals", "zh": "雄伟的大型哺乳动物" }, "order": 5 },
+          { "_id": "S06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS6.png", "name": { "en": "Bird", "zh": "鸟" }, "represents": { "en": "Feathered Flying Creatures", "zh": "有羽毛的飞行生物" }, "order": 6 },
+          { "_id": "S07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS7.png", "name": { "en": "Mouse", "zh": "鼠" }, "represents": { "en": "Tiny Rodents", "zh": "微小的啮齿动物" }, "order": 7 },
+          { "_id": "S08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS8.png", "name": { "en": "Fish", "zh": "鱼" }, "represents": { "en": "Aquatic Creatures", "zh": "水生生物" }, "order": 8 },
+          { "_id": "S09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS9.png", "name": { "en": "Reptile", "zh": "爬行" }, "represents": { "en": "Cold-blooded Reptiles", "zh": "冷血的爬行动物" }, "order": 9 },
+          { "_id": "S10", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS10.png", "name": { "en": "Fox", "zh": "狐" }, "represents": { "en": "Cunning Wild Canids", "zh": "狡猾的野生犬科动物" }, "order": 10 },
+          { "_id": "S11", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS11.png", "name": { "en": "Monkey", "zh": "猴" }, "represents": { "en": "Intelligent Primates", "zh": "聪明的灵长类动物" }, "order": 11 },
+          { "_id": "S12", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS12.png", "name": { "en": "Pig", "zh": "猪" }, "represents": { "en": "Plump Large Creatures", "zh": "胖胖的大型生物" }, "order": 12 },
+          { "_id": "S13", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS13.png", "name": { "en": "Bear", "zh": "熊" }, "represents": { "en": "Powerful Omnivores", "zh": "强大的杂食动物" }, "order": 13 },
+          { "_id": "S14", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS14.png", "name": { "en": "Plant", "zh": "植物" }, "represents": { "en": "Botanical Life Forms", "zh": "植物生命形式" }, "order": 14 },
+          { "_id": "S15", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS15.png", "name": { "en": "Alien", "zh": "外星" }, "represents": { "en": "Strange Non-Earth Organisms", "zh": "奇异的非地球生物" }, "order": 15 }
+        ];
+        const abilitiesData = [
+          { "_id": "A00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "A01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA1.png", "name": { "en": "Fire", "zh": "火" }, "represents": { "en": "Flame, Heat, Burning, Passion", "zh": "火焰、热力、燃烧、热情" }, "order": 1 },
+          { "_id": "A02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA2.png", "name": { "en": "Water", "zh": "水" }, "represents": { "en": "Liquid, Flow, Healing, Emotion", "zh": "液体、流动、治愈、情感" }, "order": 2 },
+          { "_id": "A03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA3.png", "name": { "en": "Darkness", "zh": "黑暗" }, "represents": { "en": "Shadow, Fear, Mystery, Stealth", "zh": "暗影、恐惧、神秘、隐匿" }, "order": 3 },
+          { "_id": "A04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA4.png", "name": { "en": "Wind", "zh": "风" }, "represents": { "en": "Airflow, Speed, Freedom, Agility", "zh": "气流、速度、自由、灵活性" }, "order": 4 },
+          { "_id": "A05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA5.png", "name": { "en": "Lightning", "zh": "闪电" }, "represents": { "en": "Electricity, Energy, Speed, Wisdom", "zh": "电、能量、速度、智慧" }, "order": 5 },
+          { "_id": "A06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA6.png", "name": { "en": "Nature", "zh": "自然" }, "represents": { "en": "Plants, Growth, Healing, Harmony", "zh": "植物、生长、治愈、和谐" }, "order": 6 },
+          { "_id": "A07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA7.png", "name": { "en": "Magic", "zh": "魔法" }, "represents": { "en": "Mystical Power, Spells, Change, Miracles", "zh": "神秘力量、咒语、变化、奇迹" }, "order": 7 },
+          { "_id": "A08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA8.png", "name": { "en": "Connection", "zh": "连接" }, "represents": { "en": "Network, Relationships, Communication, Teamwork", "zh": "网络、关系、沟通、团队" }, "order": 8 },
+          { "_id": "A09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA9.png", "name": { "en": "Technology", "zh": "科技" }, "represents": { "en": "Machinery, Invention, Intelligence, Progress", "zh": "机械、发明、智能、进步" }, "order": 9 },
+          { "_id": "A10", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA10.png", "name": { "en": "Crystal", "zh": "水晶" }, "represents": { "en": "Purity, Energy Storage, Protection, Value", "zh": "纯净、能量储存、防护、价值" }, "order": 10 },
+          { "_id": "A11", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA11.png", "name": { "en": "Heart", "zh": "心灵" }, "represents": { "en": "Emotion, Love, Courage, Spirit", "zh": "情感、爱、勇气、精神" }, "order": 11 },
+          { "_id": "A12", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA12.png", "name": { "en": "Space", "zh": "空间" }, "represents": { "en": "Universe, Spacetime, Infinity, Exploration", "zh": "宇宙、时空、无限、探索" }, "order": 12 }
+        ];
+        const professionsData = [
+          { "_id": "C00", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC0.png", "name": { "en": "User's Choice", "zh": "随意" }, "represents": { "en": "Define freely", "zh": "自由发挥" }, "order": 0 },
+          { "_id": "C01", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC1.png", "name": { "en": "Wand", "zh": "魔法杖" }, "represents": { "en": "Magic User, Spellcaster", "zh": "魔法使用者、施法者" }, "order": 1 },
+          { "_id": "C02", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC2.png", "name": { "en": "Book", "zh": "书籍" }, "represents": { "en": "Scholar, Knowledge Seeker", "zh": "学者、知识探索者" }, "order": 2 },
+          { "_id": "C03", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC3.png", "name": { "en": "Harp", "zh": "竖琴" }, "represents": { "en": "Musical Artist, Sound Manipulator", "zh": "音乐艺术家、声音操控者" }, "order": 3 },
+          { "_id": "C04", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC4.png", "name": { "en": "Crown", "zh": "王冠" }, "represents": { "en": "Leader, Ruler", "zh": "领导者、统治者" }, "order": 4 },
+          { "_id": "C05", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC5.png", "name": { "en": "Shield", "zh": "盾牌" }, "represents": { "en": "Defender, Protector", "zh": "防御者、保护者" }, "order": 5 },
+          { "_id": "C06", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC6.png", "name": { "en": "Wrench", "zh": "扳手" }, "represents": { "en": "Technical Expert, Maker", "zh": "技术专家、制造者" }, "order": 6 },
+          { "_id": "C07", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC7.png", "name": { "en": "Palette", "zh": "调色板" }, "represents": { "en": "Artistic Creator, Visual Expert", "zh": "艺术创造者、视觉专家" }, "order": 7 },
+          { "_id": "C08", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC8.png", "name": { "en": "Arrow", "zh": "箭矢" }, "represents": { "en": "Ranged Attacker, Precision Shooter", "zh": "远程攻击者、精准射手" }, "order": 8 },
+          { "_id": "C09", "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC9.png", "name": { "en": "Axe", "zh": "斧头" }, "represents": { "en": "Strength Warrior, Destroyer", "zh": "力量战士、破坏者" }, "order": 9 }
+        ];
+
+        // --- DOM Elements ---
+        const reel1Elem = document.getElementById('reel1');
+        const reel2Elem = document.getElementById('reel2');
+        const reel3Elem = document.getElementById('reel3');
+        const spinButton = document.getElementById('spin-button');
+        const iconContainer = document.getElementById('icon-container');
+        const comboCodeElem = document.getElementById('combo-code');
+        const copyCodeBtn = document.getElementById('copy-code-btn');
+        const copyFeedbackElem = document.getElementById('copy-feedback');
+        const langToggleButton = document.getElementById('lang-toggle');
+        const body = document.body;
+
+        // --- Constants & State ---
+        const reelWindowHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--reel-height')) || 100;
+        const itemHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--item-height')) || 100; // icon + margins
+
+        let isSpinning = false;
+        let currentLanguage = 'zh'; // 'zh' or 'en'
+        let spinIntervals = [null, null, null]; // To store interval IDs for spinning animation
+        let stopRequested = [false, false, false]; // Track if stop has been requested for each reel
+        let finalResults = [null, null, null]; // Store final icon data for each reel
+        let reelsStoppedCount = 0; // Count how many reels have finished stopping
+        let autoStopTimeout = null; // Timeout ID for auto-stop
+
+        const reels = [
+            { element: reel1Elem, data: speciesData, finalIndex: 0, isStopping: false },
+            { element: reel2Elem, data: abilitiesData, finalIndex: 0, isStopping: false },
+            { element: reel3Elem, data: professionsData, finalIndex: 0, isStopping: false }
+        ];
+
+        // --- Functions ---
+
+        // Helper to get current translateY
+        function getTranslateY(element) {
+            const style = window.getComputedStyle(element);
+            const matrix = new DOMMatrixReadOnly(style.transform);
+            return matrix.m42;
+        }
+
+        // Populate a reel strip with icons
+        function populateReel(reelConfig) {
+            const fragment = document.createDocumentFragment();
+            // Add multiple copies for seamless looping (at least 3 sets)
+            for (let i = 0; i < 3; i++) {
+                reelConfig.data.forEach(item => {
+                    const img = document.createElement('img');
+                    img.src = item.imageUrl;
+                    img.alt = item.name[currentLanguage] || item.name['en']; // Fallback to English
+                    fragment.appendChild(img);
+                });
+            }
+            reelConfig.element.appendChild(fragment);
+        }
+
+        // Initialize all reels
+        function initializeReels() {
+            reels.forEach(reel => {
+                populateReel(reel);
+                // Set initial position to center the first item (index 0)
+                const initialY = reelWindowHeight / 2 - itemHeight / 2 - 0 * itemHeight;
+                reel.element.style.transition = 'none'; // No transition for initial set
+                reel.element.style.transform = `translateY(${initialY}px)`;
+            });
+        }
+
+        // Start spinning a specific reel
+        function spinReel(reelIndex) {
+            const reelConfig = reels[reelIndex];
+            const numItems = reelConfig.data.length;
+            const totalStripHeight = numItems * itemHeight; // Height of one set of items
+
+            reelConfig.isStopping = false;
+            reelConfig.element.style.transition = 'transform 0.1s linear'; // Fast, constant speed
+
+            function animateSpin() {
+                if (reelConfig.isStopping) return; // Stop animation if stopping
+
+                const currentY = getTranslateY(reelConfig.element);
+                let nextY = currentY - itemHeight * 1.5; // Adjust speed if needed
+
+                // Reset position for seamless looping (when top item goes too far up)
+                // We reset when the first item of the *second* set is about to leave the top
+                if (nextY < -totalStripHeight) {
+                    nextY += totalStripHeight; // Move back by one full set height
+                    // Apply reset instantly without transition
+                    reelConfig.element.style.transition = 'none';
+                    reelConfig.element.style.transform = `translateY(${nextY}px)`;
+                    // Force reflow/repaint before re-applying transition
+                    reelConfig.element.offsetHeight; // eslint-disable-line no-unused-expressions
+                    reelConfig.element.style.transition = 'transform 0.1s linear';
+                }
+
+                reelConfig.element.style.transform = `translateY(${nextY}px)`;
+                spinIntervals[reelIndex] = requestAnimationFrame(animateSpin); // Use rAF for smoother animation
+            }
+            spinIntervals[reelIndex] = requestAnimationFrame(animateSpin);
+        }
+
+        // Stop a specific reel at the finalIndex
+        function stopReel(reelIndex, finalIndex) {
+            const reelConfig = reels[reelIndex];
+            if (reelConfig.isStopping) return; // Already stopping
+
+            reelConfig.isStopping = true;
+            cancelAnimationFrame(spinIntervals[reelIndex]); // Stop the spinning animation loop
+            spinIntervals[reelIndex] = null;
+
+            const numItems = reelConfig.data.length;
+            const totalStripHeight = numItems * itemHeight;
+
+            // Calculate the target Y to center the finalIndex item
+            // Target Y = (Center of Window) - (Center of Target Item relative to strip top)
+            const targetY = reelWindowHeight / 2 - (finalIndex * itemHeight + itemHeight / 2);
+
+            // Find the closest equivalent position on the infinitely looping strip
+            const currentY = getTranslateY(reelConfig.element);
+            // Calculate the difference to the ideal target position within one loop cycle
+            const targetOffsetInLoop = targetY % totalStripHeight;
+            // Calculate the current position within one loop cycle
+            const currentOffsetInLoop = currentY % totalStripHeight;
+
+            // Adjust currentY to be the equivalent position in the closest loop cycle to targetY
+            // This ensures the shortest stopping distance
+            let adjustedCurrentY = currentY;
+            const diff = targetOffsetInLoop - currentOffsetInLoop;
+            if (Math.abs(diff) > totalStripHeight / 2) {
+                 // It's shorter to wrap around
+                 if (diff > 0) {
+                     adjustedCurrentY -= totalStripHeight; // Adjust current position back one cycle
+                 } else {
+                     adjustedCurrentY += totalStripHeight; // Adjust current position forward one cycle
+                 }
+            }
+             // Now calculate the final target Y based on the adjusted current position
+             const finalTargetY = adjustedCurrentY + (targetOffsetInLoop - (adjustedCurrentY % totalStripHeight));
+
+
+            // Store the final result data
+            finalResults[reelIndex] = reelConfig.data[finalIndex];
+
+            // Apply the stopping transition and transform
+            reelConfig.element.style.transition = 'transform 1.5s cubic-bezier(0.25, 1, 0.5, 1)'; // Smooth deceleration
+            reelConfig.element.style.transform = `translateY(${finalTargetY}px)`;
+
+            // Listen for the transition to end
+            const onStop = () => {
+                reelConfig.element.removeEventListener('transitionend', onStop);
+                reelsStoppedCount++;
+                checkAllStopped(); // Check if all reels have finished
+            };
+            reelConfig.element.addEventListener('transitionend', onStop, { once: true });
+        }
+
+
+        // Check if all reels have stopped and display results
+        function checkAllStopped() {
+            if (reelsStoppedCount === reels.length) {
+                isSpinning = false;
+                spinButton.disabled = false;
+                spinButton.innerHTML = `<zh>试试手气</zh><en>Try Your Luck</en>`;
+                updateLanguageContent(); // Refresh button text language
+                displayResults();
+                updateComboCode();
+                reelsStoppedCount = 0; // Reset counter for next spin
+                reels.forEach(r => r.isStopping = false); // Reset stopping flag
+            }
+        }
+
+        // Create a result card element
+        function createResultCard(itemData) {
+            const card = document.createElement('div');
+            card.className = 'icon-card';
+
+            const img = document.createElement('img');
+            img.className = 'icon-image';
+            img.src = itemData.imageUrl;
+            img.alt = itemData.name[currentLanguage] || itemData.name['en'];
+
+            const details = document.createElement('div');
+            details.className = 'icon-details';
+
+            const title = document.createElement('h3');
+            title.className = 'icon-title';
+            title.innerHTML = `<zh>${itemData.name.zh}</zh><en>${itemData.name.en}</en>`;
+
+            const desc = document.createElement('p');
+            desc.className = 'icon-desc';
+            desc.innerHTML = `<zh>${itemData.represents.zh}</zh><en>${itemData.represents.en}</en>`;
+
+            details.appendChild(title);
+            details.appendChild(desc);
+            card.appendChild(img);
+            card.appendChild(details);
+
+            return card;
+        }
+
+        // Display results in the cards
+        function displayResults() {
+            iconContainer.innerHTML = ''; // Clear previous results
+            iconContainer.classList.remove('visible'); // Hide initially
+
+            if (finalResults.every(r => r !== null)) {
+                finalResults.forEach(result => {
+                    if (result) {
+                        const card = createResultCard(result);
+                        iconContainer.appendChild(card);
+                    }
+                });
+                // Force reflow before adding class to ensure transition happens
+                iconContainer.offsetHeight;
+                iconContainer.classList.add('visible'); // Show with transition
+                updateLanguageContent(); // Ensure new cards have correct language visible
+            }
+        }
+
+        // Update the Rxxxxxx combo code
+        function updateComboCode() {
+            if (finalResults.every(r => r !== null)) {
+                const sId = finalResults[0]._id.substring(1); // Get "01" from "S01"
+                const aId = finalResults[1]._id.substring(1); // Get "05" from "A05"
+                const cId = finalResults[2]._id.substring(1); // Get "10" from "C10"
+                comboCodeElem.textContent = `R${sId}${aId}${cId}`;
+            } else {
+                comboCodeElem.textContent = 'R000000'; // Default if no results
+            }
+        }
+
+        // Copy combo code to clipboard
+        function copyCode() {
+            navigator.clipboard.writeText(comboCodeElem.textContent).then(() => {
+                copyFeedbackElem.classList.add('visible');
+                setTimeout(() => {
+                    copyFeedbackElem.classList.remove('visible');
+                }, 1500);
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+                // Optionally provide user feedback about the failure
+            });
+        }
+
+        // --- Language Switching Logic ---
+        function updateLanguageContent() {
+            // Update body class
+            if (currentLanguage === 'en') {
+                body.classList.remove('show-zh'); // Assuming default is zh if no class
+                body.classList.add('show-en');
+                document.documentElement.lang = 'en';
+            } else {
+                body.classList.remove('show-en');
+                body.classList.add('show-zh'); // Explicitly add show-zh if needed
+                document.documentElement.lang = 'zh-CN';
+            }
+
+            // Update title
+            const titleElement = document.querySelector('title');
+            if (titleElement) {
+                const zhTitle = titleElement.querySelector('zh');
+                const enTitle = titleElement.querySelector('en');
+                if (zhTitle && enTitle) {
+                    document.title = currentLanguage === 'zh' ? zhTitle.textContent : enTitle.textContent;
+                }
+            }
+
+             // Update alt text for reel images (optional, might be slow if many images)
+             /*
+             reels.forEach(reelConfig => {
+                 reelConfig.element.querySelectorAll('img').forEach((img, index) => {
+                     const dataIndex = index % reelConfig.data.length;
+                     const item = reelConfig.data[dataIndex];
+                     img.alt = item.name[currentLanguage] || item.name['en'];
+                 });
+             });
+             */
+        }
+
+        function toggleLanguage() {
+            currentLanguage = (currentLanguage === 'zh') ? 'en' : 'zh';
+            localStorage.setItem('preferredLanguage', currentLanguage);
+            updateLanguageContent();
+        }
+
+        function initializeLanguage() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && (savedLang === 'en' || savedLang === 'zh')) {
+                currentLanguage = savedLang;
+            } else {
+                 // Optional: Detect browser language as a fallback
+                 const browserLang = navigator.language || navigator.userLanguage;
+                 currentLanguage = browserLang.startsWith('zh') ? 'zh' : 'en';
+            }
+            updateLanguageContent();
+        }
+
+
+        // --- Event Listeners ---
+        spinButton.addEventListener('click', () => {
+            if (isSpinning) {
+                // --- Request Stop ---
+                clearTimeout(autoStopTimeout); // Clear auto-stop timer
+                spinButton.disabled = true; // Disable until reels fully stop
+                spinButton.innerHTML = `<zh>停止中...</zh><en>Stopping...</en>`;
+                updateLanguageContent();
+                reels.forEach((reel, index) => {
+                    // Stop each reel at its predetermined finalIndex
+                    stopReel(index, reel.finalIndex);
+                });
+            } else {
+                // --- Start Spinning ---
+                isSpinning = true;
+                iconContainer.classList.remove('visible'); // Hide old results
+                iconContainer.innerHTML = ''; // Clear results area visually
+                comboCodeElem.textContent = 'R------'; // Placeholder during spin
+                spinButton.innerHTML = `<zh>停止</zh><en>Stop</en>`;
+                updateLanguageContent();
+
+                reels.forEach((reel, index) => {
+                    // Determine random final index for this spin
+                    reel.finalIndex = Math.floor(Math.random() * reel.data.length);
+                    spinReel(index); // Start the visual spinning
+                });
+
+                 // Set auto-stop timeout
+                 clearTimeout(autoStopTimeout); // Clear any previous timeout just in case
+                 autoStopTimeout = setTimeout(() => {
+                     if (isSpinning) { // Only stop if still spinning
+                         console.log("Auto stopping after 5 seconds");
+                         spinButton.click(); // Simulate a stop click
+                     }
+                 }, 5000); // 5 seconds
+            }
+        });
+
+        langToggleButton.addEventListener('click', toggleLanguage);
+        copyCodeBtn.addEventListener('click', copyCode);
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeLanguage();
+            initializeReels();
+        });
+
+    </script>
+</body>
+</html>
