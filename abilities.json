@@ -23,7 +23,7 @@
         "zh": "这是一个供你发挥创意的占位符"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA0.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA0.png",
     "order": 0
   },
   {
@@ -70,7 +70,7 @@
         "zh": "既能温暖，也能燃烧"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA1.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA1.png",
     "order": 1
   },
   {
@@ -117,7 +117,7 @@
         "zh": "代表情绪和适应力"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA2.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA2.png",
     "order": 2
   },
   {
@@ -164,7 +164,7 @@
         "zh": "代表内心深处的秘密"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA3.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA3.png",
     "order": 3
   },
   {
@@ -211,7 +211,7 @@
         "zh": "可以从物理的风力到抽象的灵动性多方面理解"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA4.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA4.png",
     "order": 4
   },
   {
@@ -258,7 +258,7 @@
         "zh": "代表能量和快速决策"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA5.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA5.png",
     "order": 5
   },
   {
@@ -305,7 +305,7 @@
         "zh": "代表平衡和可持续发展"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA6.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA6.png",
     "order": 6
   },
   {
@@ -352,7 +352,7 @@
         "zh": "鼓励突破常规的大胆创新"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA7.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA7.png",
     "order": 7
   },
   {
@@ -399,7 +399,7 @@
         "zh": "可以从社交、心灵或科技网络角度理解"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA8.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA8.png",
     "order": 8
   },
   {
@@ -446,7 +446,7 @@
         "zh": "从机械装置到智能意识的各种能力"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA9.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA9.png",
     "order": 9
   },
   {
@@ -493,7 +493,7 @@
         "zh": "秘密的守护者"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA10.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA10.png",
     "order": 10
   },
   {
@@ -540,7 +540,7 @@
         "zh": "从情绪影响到精神力量的灵感"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA11.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA11.png",
     "order": 11
   },
   {
@@ -587,7 +587,7 @@
         "zh": "空间的各种可能性，创造独特能力"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA12.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsA12.png",
     "order": 12
   }
 ]

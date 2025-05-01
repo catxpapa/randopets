@@ -23,7 +23,7 @@
         "zh": "这是一个供你发挥创意的占位符"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC0.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC0.png",
     "order": 0
   },
   {
@@ -86,7 +86,7 @@
         "zh": "研究神秘学的学者"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC1.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC1.png",
     "order": 1
   },
   {
@@ -157,7 +157,7 @@
         "zh": "历史和文化的保存者"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC2.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC2.png",
     "order": 2
   },
   {
@@ -220,7 +220,7 @@
         "zh": "将声波用于各种目的"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC3.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC3.png",
     "order": 3
   },
   {
@@ -287,7 +287,7 @@
         "zh": "代表和引导社区"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC4.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC4.png",
     "order": 4
   },
   {
@@ -358,7 +358,7 @@
         "zh": "作为前线防御者"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC5.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC5.png",
     "order": 5
   },
   {
@@ -429,7 +429,7 @@
         "zh": "将科学知识应用于实际应用"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC6.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC6.png",
     "order": 6
   },
   {
@@ -496,7 +496,7 @@
         "zh": "通过艺术技巧创造美或幻象"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC7.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC7.png",
     "order": 7
   },
   {
@@ -563,7 +563,7 @@
         "zh": "将准确性与战术定位相结合"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC8.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC8.png",
     "order": 8
   },
   {
@@ -630,7 +630,7 @@
         "zh": "将力量与毁灭性技术相结合"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC9.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsC9.png",
     "order": 9
   }
 ]

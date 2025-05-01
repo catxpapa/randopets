@@ -27,7 +27,7 @@
         "zh": "可根据偏好自定义"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS0.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS0.png",
     "order": 0
   },
   {
@@ -110,7 +110,7 @@
         "zh": "善于捕猎"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS1.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS1.png",
     "order": 1
   },
   {
@@ -189,7 +189,7 @@
         "zh": "出色的猎手和伙伴"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS2.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS2.png",
     "order": 2
   },
   {
@@ -264,7 +264,7 @@
         "zh": "通常有大耳朵或其他显著特征"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS3.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS3.png",
     "order": 3
   },
   {
@@ -351,7 +351,7 @@
         "zh": "适应性强，几乎存在于所有环境中"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS4.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS4.png",
     "order": 4
   },
   {
@@ -438,7 +438,7 @@
         "zh": "奔跑能力出众"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS5.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS5.png",
     "order": 5
   },
   {
@@ -529,7 +529,7 @@
         "zh": "适应了各种生态环境"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS6.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS6.png",
     "order": 6
   },
   {
@@ -604,7 +604,7 @@
         "zh": "有些还能飞行或滑翔"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS7.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS7.png",
     "order": 7
   },
   {
@@ -675,7 +675,7 @@
         "zh": "多数杂食性且能直立行走"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS8.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS8.png",
     "order": 8
   },
   {
@@ -754,7 +754,7 @@
         "zh": "包括能吐火的传说生物和有毒的危险物种"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS9.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS9.png",
     "order": 9
   },
   {
@@ -829,7 +829,7 @@
         "zh": "适应性强且狡猾"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS10.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS10.png",
     "order": 10
   },
   {
@@ -908,7 +908,7 @@
         "zh": "多数生活在树上或森林中"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS11.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS11.png",
     "order": 11
   },
   {
@@ -983,7 +983,7 @@
         "zh": "动作可能看起来笨拙但实际上很有力量"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS12.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS12.png",
     "order": 12
   },
   {
@@ -1070,7 +1070,7 @@
         "zh": "包括一些水中传说生物"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS13.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS13.png",
     "order": 13
   },
   {
@@ -1161,7 +1161,7 @@
         "zh": "从普通花卉到奇幻植物"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS14.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS14.png",
     "order": 14
   },
   {
@@ -1232,7 +1232,7 @@
         "zh": "可能拥有超出常识的能力和特征"
       }
     ],
-    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS15.png",
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/pic/randopetsS15.png",
     "order": 15
   }
 ]
