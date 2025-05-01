@@ -1,0 +1,1238 @@
+[
+  {
+    "_id": "S0",
+    "iconId": "S0.png",
+    "category": "species",
+    "name": {
+      "en": "User's Choice",
+      "zh": "随意"
+    },
+    "represents": {
+      "en": "Define freely",
+      "zh": "自由发挥"
+    },
+    "examples": [
+      {
+        "en": "Define this aspect freely based on your ideas",
+        "zh": "根据你的想法自由定义此项"
+      }
+    ],
+    "features": [
+      {
+        "en": "Complete freedom of choice",
+        "zh": "完全自由选择"
+      },
+      {
+        "en": "Customizable to your preference",
+        "zh": "可根据偏好自定义"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS0.png",
+    "order": 0
+  },
+  {
+    "_id": "S1",
+    "iconId": "S1.png",
+    "category": "species",
+    "name": {
+      "en": "Cat",
+      "zh": "猫"
+    },
+    "represents": {
+      "en": "Elegant Feline Animals",
+      "zh": "优雅的猫科动物"
+    },
+    "examples": [
+      {
+        "en": "Domestic Cat",
+        "zh": "家猫"
+      },
+      {
+        "en": "Tiger",
+        "zh": "老虎"
+      },
+      {
+        "en": "Lion",
+        "zh": "狮子"
+      },
+      {
+        "en": "Leopard",
+        "zh": "豹"
+      },
+      {
+        "en": "Cheetah",
+        "zh": "猎豹"
+      },
+      {
+        "en": "Cougar",
+        "zh": "美洲狮"
+      },
+      {
+        "en": "Bobcat",
+        "zh": "山猫"
+      },
+      {
+        "en": "Lynx",
+        "zh": "猞猁"
+      },
+      {
+        "en": "Clouded Leopard",
+        "zh": "云豹"
+      },
+      {
+        "en": "Snow Leopard",
+        "zh": "雪豹"
+      },
+      {
+        "en": "Jaguar",
+        "zh": "美洲虎"
+      },
+      {
+        "en": "Mongoose",
+        "zh": "猫鼬"
+      },
+      {
+        "en": "Serval",
+        "zh": "薮猫"
+      }
+    ],
+    "features": [
+      {
+        "en": "Flexible bodies and agile movements",
+        "zh": "身体灵活，动作敏捷"
+      },
+      {
+        "en": "Sharp claws and canine teeth",
+        "zh": "锋利的爪子和犬齿"
+      },
+      {
+        "en": "Adept hunters",
+        "zh": "善于捕猎"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS1.png",
+    "order": 1
+  },
+  {
+    "_id": "S2",
+    "iconId": "S2.png",
+    "category": "species",
+    "name": {
+      "en": "Dog",
+      "zh": "狗"
+    },
+    "represents": {
+      "en": "Loyal Canine Animals",
+      "zh": "忠诚的犬类动物"
+    },
+    "examples": [
+      {
+        "en": "Domestic Dog",
+        "zh": "家犬"
+      },
+      {
+        "en": "Wolf",
+        "zh": "狼"
+      },
+      {
+        "en": "Fox",
+        "zh": "狐狸"
+      },
+      {
+        "en": "Jackal",
+        "zh": "豺"
+      },
+      {
+        "en": "Dingo",
+        "zh": "野狗"
+      },
+      {
+        "en": "Coyote",
+        "zh": "郊狼"
+      },
+      {
+        "en": "African Wild Dog",
+        "zh": "非洲野犬"
+      },
+      {
+        "en": "Arctic Fox",
+        "zh": "北极狐"
+      },
+      {
+        "en": "Fennec Fox",
+        "zh": "沙狐"
+      },
+      {
+        "en": "Red Fox",
+        "zh": "赤狐"
+      },
+      {
+        "en": "Gray Wolf",
+        "zh": "灰狼"
+      },
+      {
+        "en": "Bush Dog",
+        "zh": "丛林狼"
+      }
+    ],
+    "features": [
+      {
+        "en": "Often live in groups with social hierarchies",
+        "zh": "往往群居且有社交层级"
+      },
+      {
+        "en": "Possess excellent senses of smell and hearing",
+        "zh": "拥有出色的嗅觉和听觉"
+      },
+      {
+        "en": "Outstanding hunters and companions",
+        "zh": "出色的猎手和伙伴"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS2.png",
+    "order": 2
+  },
+  {
+    "_id": "S3",
+    "iconId": "S3.png",
+    "category": "species",
+    "name": {
+      "en": "Rabbit",
+      "zh": "兔"
+    },
+    "represents": {
+      "en": "Cute Small Animals",
+      "zh": "可爱的小型动物"
+    },
+    "examples": [
+      {
+        "en": "Domestic Rabbit",
+        "zh": "家兔"
+      },
+      {
+        "en": "Hare",
+        "zh": "野兔"
+      },
+      {
+        "en": "Cottontail Rabbit",
+        "zh": "棉尾兔"
+      },
+      {
+        "en": "Squirrel",
+        "zh": "松鼠"
+      },
+      {
+        "en": "Hedgehog",
+        "zh": "刺猬"
+      },
+      {
+        "en": "Guinea Pig",
+        "zh": "豚鼠"
+      },
+      {
+        "en": "Chinchilla",
+        "zh": "龙猫"
+      },
+      {
+        "en": "Chipmunk",
+        "zh": "花栗鼠"
+      },
+      {
+        "en": "Groundhog",
+        "zh": "土拨鼠"
+      },
+      {
+        "en": "Wallaby",
+        "zh": "小袋鼠"
+      },
+      {
+        "en": "Viscacha",
+        "zh": "毛丝鼠"
+      }
+    ],
+    "features": [
+      {
+        "en": "Small, furry creatures with rounded shapes",
+        "zh": "体型较小、毛茸茸且通常有着圆润外形的生物"
+      },
+      {
+        "en": "Mostly gentle or timid in nature",
+        "zh": "多数性格温顺或胆小"
+      },
+      {
+        "en": "Often have large ears or distinctive features",
+        "zh": "通常有大耳朵或其他显著特征"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS3.png",
+    "order": 3
+  },
+  {
+    "_id": "S4",
+    "iconId": "S4.png",
+    "category": "species",
+    "name": {
+      "en": "Insect",
+      "zh": "昆虫"
+    },
+    "represents": {
+      "en": "Tiny Arthropods",
+      "zh": "微小的节肢动物"
+    },
+    "examples": [
+      {
+        "en": "Bee",
+        "zh": "蜜蜂"
+      },
+      {
+        "en": "Butterfly",
+        "zh": "蝴蝶"
+      },
+      {
+        "en": "Beetle",
+        "zh": "甲虫"
+      },
+      {
+        "en": "Ant",
+        "zh": "蚂蚁"
+      },
+      {
+        "en": "Dragonfly",
+        "zh": "蜻蜓"
+      },
+      {
+        "en": "Cricket",
+        "zh": "蟋蟀"
+      },
+      {
+        "en": "Locust",
+        "zh": "蝗虫"
+      },
+      {
+        "en": "Mantis",
+        "zh": "螳螂"
+      },
+      {
+        "en": "Ladybug",
+        "zh": "瓢虫"
+      },
+      {
+        "en": "Spider",
+        "zh": "蜘蛛"
+      },
+      {
+        "en": "Scorpion",
+        "zh": "蝎子"
+      },
+      {
+        "en": "Centipede",
+        "zh": "蜈蚣"
+      },
+      {
+        "en": "Mosquito",
+        "zh": "蚊子"
+      },
+      {
+        "en": "Fly",
+        "zh": "苍蝇"
+      }
+    ],
+    "features": [
+      {
+        "en": "Tiny organisms with segmented bodies and exoskeletons",
+        "zh": "体型微小但数量庞大的生物群体，它们通常有着节段式身体和外骨骼"
+      },
+      {
+        "en": "Many capable of flight",
+        "zh": "许多种类能够飞行"
+      },
+      {
+        "en": "Highly adaptable and found in nearly all environments",
+        "zh": "适应性强，几乎存在于所有环境中"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS4.png",
+    "order": 4
+  },
+  {
+    "_id": "S5",
+    "iconId": "S5.png",
+    "category": "species",
+    "name": {
+      "en": "Horse",
+      "zh": "马"
+    },
+    "represents": {
+      "en": "Large Hoofed Animals",
+      "zh": "有蹄的大型动物"
+    },
+    "examples": [
+      {
+        "en": "Domestic Horse",
+        "zh": "家马"
+      },
+      {
+        "en": "Zebra",
+        "zh": "斑马"
+      },
+      {
+        "en": "Donkey",
+        "zh": "驴"
+      },
+      {
+        "en": "Mule",
+        "zh": "骡子"
+      },
+      {
+        "en": "Cow",
+        "zh": "牛"
+      },
+      {
+        "en": "Sheep",
+        "zh": "羊"
+      },
+      {
+        "en": "Deer",
+        "zh": "鹿"
+      },
+      {
+        "en": "Elk",
+        "zh": "麋鹿"
+      },
+      {
+        "en": "Antelope",
+        "zh": "羚羊"
+      },
+      {
+        "en": "Giraffe",
+        "zh": "长颈鹿"
+      },
+      {
+        "en": "Bison",
+        "zh": "野牛"
+      },
+      {
+        "en": "Buffalo",
+        "zh": "水牛"
+      },
+      {
+        "en": "Unicorn",
+        "zh": "独角兽"
+      },
+      {
+        "en": "Wildebeest",
+        "zh": "角马"
+      }
+    ],
+    "features": [
+      {
+        "en": "Walk on hooves, mostly herbivores",
+        "zh": "以蹄行走，多为草食性"
+      },
+      {
+        "en": "Possess strong limbs and elongated bodies",
+        "zh": "拥有强健的四肢和修长的身躯"
+      },
+      {
+        "en": "Excellent runners",
+        "zh": "奔跑能力出众"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS5.png",
+    "order": 5
+  },
+  {
+    "_id": "S6",
+    "iconId": "S6.png",
+    "category": "species",
+    "name": {
+      "en": "Bird",
+      "zh": "鸟"
+    },
+    "represents": {
+      "en": "Winged Creatures of the Sky",
+      "zh": "天空中的羽翼生物"
+    },
+    "examples": [
+      {
+        "en": "Parrot",
+        "zh": "鹦鹉"
+      },
+      {
+        "en": "Chicken",
+        "zh": "鸡"
+      },
+      {
+        "en": "Duck",
+        "zh": "鸭"
+      },
+      {
+        "en": "Goose",
+        "zh": "鹅"
+      },
+      {
+        "en": "Swan",
+        "zh": "天鹅"
+      },
+      {
+        "en": "Pigeon",
+        "zh": "鸽子"
+      },
+      {
+        "en": "Eagle",
+        "zh": "鹰"
+      },
+      {
+        "en": "Owl",
+        "zh": "猫头鹰"
+      },
+      {
+        "en": "Penguin",
+        "zh": "企鹅"
+      },
+      {
+        "en": "Ostrich",
+        "zh": "鸵鸟"
+      },
+      {
+        "en": "Peacock",
+        "zh": "孔雀"
+      },
+      {
+        "en": "Flamingo",
+        "zh": "火烈鸟"
+      },
+      {
+        "en": "Phoenix",
+        "zh": "凤凰"
+      },
+      {
+        "en": "Thunderbird",
+        "zh": "雷鸟"
+      },
+      {
+        "en": "Griffin",
+        "zh": "格里芬"
+      }
+    ],
+    "features": [
+      {
+        "en": "Bodies covered in feathers, most capable of flight",
+        "zh": "身体覆盖羽毛，多数能够飞行"
+      },
+      {
+        "en": "Lightweight bones and sharp beaks",
+        "zh": "轻盈的骨骼和尖锐的喙"
+      },
+      {
+        "en": "Adapted to various environments",
+        "zh": "适应了各种生态环境"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS6.png",
+    "order": 6
+  },
+  {
+    "_id": "S7",
+    "iconId": "S7.png",
+    "category": "species",
+    "name": {
+      "en": "Mouse",
+      "zh": "鼠"
+    },
+    "represents": {
+      "en": "Tiny Rodents",
+      "zh": "微小的啮齿动物"
+    },
+    "examples": [
+      {
+        "en": "House Mouse",
+        "zh": "家鼠"
+      },
+      {
+        "en": "Vole",
+        "zh": "田鼠"
+      },
+      {
+        "en": "Hamster",
+        "zh": "仓鼠"
+      },
+      {
+        "en": "Bat",
+        "zh": "蝙蝠"
+      },
+      {
+        "en": "Jerboa",
+        "zh": "跳鼠"
+      },
+      {
+        "en": "Gerbil",
+        "zh": "沙鼠"
+      },
+      {
+        "en": "Mole",
+        "zh": "鼹鼠"
+      },
+      {
+        "en": "Pygmy Hog",
+        "zh": "袖珍猪"
+      },
+      {
+        "en": "Opossum",
+        "zh": "负鼠"
+      },
+      {
+        "en": "Sugar Glider",
+        "zh": "蜜袋鼯"
+      },
+      {
+        "en": "Flying Squirrel",
+        "zh": "飞鼠"
+      }
+    ],
+    "features": [
+      {
+        "en": "Extremely small mammals with pointed snouts and long tails",
+        "zh": "体型极小的哺乳动物，通常有着尖尖的吻部和长尾巴"
+      },
+      {
+        "en": "Agile and highly reproductive",
+        "zh": "动作敏捷且繁殖能力强"
+      },
+      {
+        "en": "Some can fly or glide",
+        "zh": "有些还能飞行或滑翔"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS7.png",
+    "order": 7
+  },
+  {
+    "_id": "S8",
+    "iconId": "S8.png",
+    "category": "species",
+    "name": {
+      "en": "Bear",
+      "zh": "熊"
+    },
+    "represents": {
+      "en": "Strong Large Carnivores",
+      "zh": "强壮的大型食肉动物"
+    },
+    "examples": [
+      {
+        "en": "Brown Bear",
+        "zh": "棕熊"
+      },
+      {
+        "en": "Black Bear",
+        "zh": "黑熊"
+      },
+      {
+        "en": "Polar Bear",
+        "zh": "北极熊"
+      },
+      {
+        "en": "Panda",
+        "zh": "熊猫"
+      },
+      {
+        "en": "Grizzly Bear",
+        "zh": "灰熊"
+      },
+      {
+        "en": "Sun Bear",
+        "zh": "马来熊"
+      },
+      {
+        "en": "Spectacled Bear",
+        "zh": "眼镜熊"
+      },
+      {
+        "en": "Sloth Bear",
+        "zh": "懒熊"
+      },
+      {
+        "en": "Sloth",
+        "zh": "树懒"
+      },
+      {
+        "en": "Koala",
+        "zh": "考拉"
+      }
+    ],
+    "features": [
+      {
+        "en": "Large and incredibly strong creatures",
+        "zh": "体型庞大且力量惊人的生物"
+      },
+      {
+        "en": "Usually with thick fur and powerful claws",
+        "zh": "通常有厚实的皮毛和强壮的爪子"
+      },
+      {
+        "en": "Mostly omnivorous and capable of standing upright",
+        "zh": "多数杂食性且能直立行走"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS8.png",
+    "order": 8
+  },
+  {
+    "_id": "S9",
+    "iconId": "S9.png",
+    "category": "species",
+    "name": {
+      "en": "Reptile",
+      "zh": "爬行"
+    },
+    "represents": {
+      "en": "Cold-blooded Reptiles",
+      "zh": "冷血的爬行动物"
+    },
+    "examples": [
+      {
+        "en": "Snake",
+        "zh": "蛇"
+      },
+      {
+        "en": "Lizard",
+        "zh": "蜥蜴"
+      },
+      {
+        "en": "Crocodile",
+        "zh": "鳄鱼"
+      },
+      {
+        "en": "Turtle",
+        "zh": "乌龟"
+      },
+      {
+        "en": "Chameleon",
+        "zh": "变色龙"
+      },
+      {
+        "en": "Gecko",
+        "zh": "壁虎"
+      },
+      {
+        "en": "Iguana",
+        "zh": "鬣蜥"
+      },
+      {
+        "en": "Python",
+        "zh": "蟒蛇"
+      },
+      {
+        "en": "Cobra",
+        "zh": "眼镜蛇"
+      },
+      {
+        "en": "Dragon",
+        "zh": "龙"
+      },
+      {
+        "en": "Basilisk",
+        "zh": "蛇怪"
+      },
+      {
+        "en": "Cockatrice",
+        "zh": "巴西利斯克"
+      }
+    ],
+    "features": [
+      {
+        "en": "Cold-blooded animals with scale-covered skin",
+        "zh": "皮肤覆盖鳞片的冷血动物"
+      },
+      {
+        "en": "Mostly active in warm environments",
+        "zh": "多在温暖环境活动"
+      },
+      {
+        "en": "Including legendary fire-breathing creatures and venomous species",
+        "zh": "包括能吐火的传说生物和有毒的危险物种"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS9.png",
+    "order": 9
+  },
+  {
+    "_id": "S10",
+    "iconId": "S10.png",
+    "category": "species",
+    "name": {
+      "en": "Fox",
+      "zh": "狐"
+    },
+    "represents": {
+      "en": "Clever Medium-Small Mammals",
+      "zh": "机灵的中小型兽类"
+    },
+    "examples": [
+      {
+        "en": "Red Fox",
+        "zh": "赤狐"
+      },
+      {
+        "en": "Arctic Fox",
+        "zh": "北极狐"
+      },
+      {
+        "en": "Raccoon",
+        "zh": "浣熊"
+      },
+      {
+        "en": "Red Panda",
+        "zh": "小熊猫"
+      },
+      {
+        "en": "Marten",
+        "zh": "貂"
+      },
+      {
+        "en": "Otter",
+        "zh": "水獭"
+      },
+      {
+        "en": "Beaver",
+        "zh": "河狸"
+      },
+      {
+        "en": "Skunk",
+        "zh": "臭鼬"
+      },
+      {
+        "en": "Raccoon Dog",
+        "zh": "狸猫"
+      },
+      {
+        "en": "Civet",
+        "zh": "果子狸"
+      },
+      {
+        "en": "Tanuki",
+        "zh": "貉"
+      }
+    ],
+    "features": [
+      {
+        "en": "Flexible bodies and agile movements",
+        "zh": "灵活的身体和敏捷的动作"
+      },
+      {
+        "en": "Mostly omnivorous",
+        "zh": "多为杂食性"
+      },
+      {
+        "en": "Highly adaptable and known for their cunning",
+        "zh": "适应性强且狡猾"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS10.png",
+    "order": 10
+  },
+  {
+    "_id": "S11",
+    "iconId": "S11.png",
+    "category": "species",
+    "name": {
+      "en": "Monkey",
+      "zh": "猴"
+    },
+    "represents": {
+      "en": "Intelligent Primates",
+      "zh": "聪明的灵长类动物"
+    },
+    "examples": [
+      {
+        "en": "Monkey",
+        "zh": "猴子"
+      },
+      {
+        "en": "Chimpanzee",
+        "zh": "黑猩猩"
+      },
+      {
+        "en": "Gorilla",
+        "zh": "大猩猩"
+      },
+      {
+        "en": "Orangutan",
+        "zh": "猩猩"
+      },
+      {
+        "en": "Baboon",
+        "zh": "狒狒"
+      },
+      {
+        "en": "Gibbon",
+        "zh": "长臂猿"
+      },
+      {
+        "en": "Golden Snub-nosed Monkey",
+        "zh": "金丝猴"
+      },
+      {
+        "en": "Leaf Monkey",
+        "zh": "叶猴"
+      },
+      {
+        "en": "Marmoset",
+        "zh": "狨猴"
+      },
+      {
+        "en": "Capuchin",
+        "zh": "卷尾猴"
+      },
+      {
+        "en": "Lemur",
+        "zh": "狐猴"
+      }
+    ],
+    "features": [
+      {
+        "en": "High intelligence and flexible fingers",
+        "zh": "高度智能和灵活手指"
+      },
+      {
+        "en": "Highly social",
+        "zh": "社交性强"
+      },
+      {
+        "en": "Capable of using tools",
+        "zh": "能使用工具"
+      },
+      {
+        "en": "Mostly living in trees or forests",
+        "zh": "多数生活在树上或森林中"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS11.png",
+    "order": 11
+  },
+  {
+    "_id": "S12",
+    "iconId": "S12.png",
+    "category": "species",
+    "name": {
+      "en": "Pig",
+      "zh": "猪"
+    },
+    "represents": {
+      "en": "Plump Large Creatures",
+      "zh": "胖胖的大型生物"
+    },
+    "examples": [
+      {
+        "en": "Domestic Pig",
+        "zh": "家猪"
+      },
+      {
+        "en": "Wild Boar",
+        "zh": "野猪"
+      },
+      {
+        "en": "Warthog",
+        "zh": "疣猪"
+      },
+      {
+        "en": "Hippopotamus",
+        "zh": "河马"
+      },
+      {
+        "en": "Elephant",
+        "zh": "大象"
+      },
+      {
+        "en": "Rhinoceros",
+        "zh": "犀牛"
+      },
+      {
+        "en": "Walrus",
+        "zh": "海象"
+      },
+      {
+        "en": "Manatee",
+        "zh": "海牛"
+      },
+      {
+        "en": "Sea Lion",
+        "zh": "海狮"
+      },
+      {
+        "en": "Seal",
+        "zh": "海豹"
+      },
+      {
+        "en": "Tapir",
+        "zh": "貘"
+      }
+    ],
+    "features": [
+      {
+        "en": "Round-bodied and heavy animals",
+        "zh": "体型圆润且体重较重的动物"
+      },
+      {
+        "en": "Often with thick skin or fat layers",
+        "zh": "多有厚实的皮肤或脂肪层"
+      },
+      {
+        "en": "May appear clumsy but are actually quite powerful",
+        "zh": "动作可能看起来笨拙但实际上很有力量"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS12.png",
+    "order": 12
+  },
+  {
+    "_id": "S13",
+    "iconId": "S13.png",
+    "category": "species",
+    "name": {
+      "en": "Fish",
+      "zh": "鱼"
+    },
+    "represents": {
+      "en": "Swimming Creatures of the Water",
+      "zh": "水中的游动生物"
+    },
+    "examples": [
+      {
+        "en": "Goldfish",
+        "zh": "金鱼"
+      },
+      {
+        "en": "Shark",
+        "zh": "鲨鱼"
+      },
+      {
+        "en": "Whale",
+        "zh": "鲸鱼"
+      },
+      {
+        "en": "Dolphin",
+        "zh": "海豚"
+      },
+      {
+        "en": "Octopus",
+        "zh": "章鱼"
+      },
+      {
+        "en": "Jellyfish",
+        "zh": "水母"
+      },
+      {
+        "en": "Seahorse",
+        "zh": "海马"
+      },
+      {
+        "en": "Eel",
+        "zh": "鳗鱼"
+      },
+      {
+        "en": "Carp",
+        "zh": "鲤鱼"
+      },
+      {
+        "en": "Trout",
+        "zh": "鳟鱼"
+      },
+      {
+        "en": "Mermaid (fish-tailed)",
+        "zh": "美人鱼(鱼尾版)"
+      },
+      {
+        "en": "Sea Dragon",
+        "zh": "海龙"
+      },
+      {
+        "en": "Kraken",
+        "zh": "克拉肯"
+      }
+    ],
+    "features": [
+      {
+        "en": "Various creatures living in water",
+        "zh": "生活在水中的各类生物"
+      },
+      {
+        "en": "Breathing through gills or lungs",
+        "zh": "通过鳃或肺呼吸"
+      },
+      {
+        "en": "With streamlined bodies or specialized swimming organs",
+        "zh": "有着流线型身体或特化的游动器官"
+      },
+      {
+        "en": "Including some aquatic legendary beings",
+        "zh": "包括一些水中传说生物"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS13.png",
+    "order": 13
+  },
+  {
+    "_id": "S14",
+    "iconId": "S14.png",
+    "category": "species",
+    "name": {
+      "en": "Flower",
+      "zh": "花"
+    },
+    "represents": {
+      "en": "The World of Green Plants",
+      "zh": "绿色植物世界"
+    },
+    "examples": [
+      {
+        "en": "Rose",
+        "zh": "玫瑰"
+      },
+      {
+        "en": "Sunflower",
+        "zh": "向日葵"
+      },
+      {
+        "en": "Tulip",
+        "zh": "郁金香"
+      },
+      {
+        "en": "Lily",
+        "zh": "百合"
+      },
+      {
+        "en": "Orchid",
+        "zh": "兰花"
+      },
+      {
+        "en": "Chrysanthemum",
+        "zh": "菊花"
+      },
+      {
+        "en": "Dandelion",
+        "zh": "蒲公英"
+      },
+      {
+        "en": "Cherry Blossom",
+        "zh": "樱花"
+      },
+      {
+        "en": "Lotus",
+        "zh": "荷花"
+      },
+      {
+        "en": "Peony",
+        "zh": "牡丹"
+      },
+      {
+        "en": "Cactus",
+        "zh": "仙人掌"
+      },
+      {
+        "en": "Man-eating Plant",
+        "zh": "食人花"
+      },
+      {
+        "en": "Magical Plant",
+        "zh": "魔法植物"
+      },
+      {
+        "en": "Mandrake",
+        "zh": "曼德拉草"
+      }
+    ],
+    "features": [
+      {
+        "en": "Organisms obtaining energy through photosynthesis",
+        "zh": "通过光合作用获取能量的生物"
+      },
+      {
+        "en": "Some possess mobility or magical properties",
+        "zh": "有些具有移动能力或魔法特性"
+      },
+      {
+        "en": "Colorful and diverse in form",
+        "zh": "色彩缤纷且形态各异"
+      },
+      {
+        "en": "From common flowers to fantastical plants",
+        "zh": "从普通花卉到奇幻植物"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS14.png",
+    "order": 14
+  },
+  {
+    "_id": "S15",
+    "iconId": "S15.png",
+    "category": "species",
+    "name": {
+      "en": "Alien",
+      "zh": "外星"
+    },
+    "represents": {
+      "en": "Strange Non-Earth Organisms",
+      "zh": "奇异的非地球生物"
+    },
+    "examples": [
+      {
+        "en": "Extraterrestrial Life",
+        "zh": "外星生物"
+      },
+      {
+        "en": "Monster",
+        "zh": "怪兽"
+      },
+      {
+        "en": "Cthulhu",
+        "zh": "克苏鲁"
+      },
+      {
+        "en": "Slime",
+        "zh": "史莱姆"
+      },
+      {
+        "en": "Xenomorph",
+        "zh": "异形"
+      },
+      {
+        "en": "Predator",
+        "zh": "掠食者"
+      },
+      {
+        "en": "Trisolaran",
+        "zh": "三体人"
+      },
+      {
+        "en": "Interstellar Creature",
+        "zh": "星际生物"
+      },
+      {
+        "en": "Unknown Life Form",
+        "zh": "未知生命形式"
+      },
+      {
+        "en": "Space Parasite",
+        "zh": "太空寄生虫"
+      }
+    ],
+    "features": [
+      {
+        "en": "Mysterious beings from other planets or dimensions",
+        "zh": "来自其他星球或维度的神秘生物"
+      },
+      {
+        "en": "Forms differ vastly from Earth life",
+        "zh": "形态与地球生物截然不同"
+      },
+      {
+        "en": "Potentially possessing abilities and characteristics beyond common sense",
+        "zh": "可能拥有超出常识的能力和特征"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsS15.png",
+    "order": 15
+  }
+]

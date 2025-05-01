@@ -1,0 +1,636 @@
+[
+  {
+    "_id": "C0",
+    "iconId": "C0.png",
+    "category": "profession",
+    "name": {
+      "en": "User's Choice",
+      "zh": "随意"
+    },
+    "represents": {
+      "en": "Define freely",
+      "zh": "自由发挥"
+    },
+    "roles": [
+      {
+        "en": "Define this aspect freely based on your ideas",
+        "zh": "根据你的想法自由定义此项"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "This is a placeholder for your own creative ideas",
+        "zh": "这是一个供你发挥创意的占位符"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC0.png",
+    "order": 0
+  },
+  {
+    "_id": "C1",
+    "iconId": "C1.png",
+    "category": "profession",
+    "name": {
+      "en": "Wand",
+      "zh": "魔法杖"
+    },
+    "represents": {
+      "en": "Magic User, Spellcaster",
+      "zh": "魔法使用者、施法者"
+    },
+    "roles": [
+      {
+        "en": "Mage",
+        "zh": "魔法师"
+      },
+      {
+        "en": "Wizard",
+        "zh": "巫师"
+      },
+      {
+        "en": "Summoner",
+        "zh": "召唤师"
+      },
+      {
+        "en": "Necromancer",
+        "zh": "死灵法师"
+      },
+      {
+        "en": "Elementalist",
+        "zh": "元素使"
+      },
+      {
+        "en": "Arcanist",
+        "zh": "奥术师"
+      },
+      {
+        "en": "Sorcerer",
+        "zh": "魔导士"
+      },
+      {
+        "en": "Spellbinder",
+        "zh": "咒术师"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Wield mysterious magical powers",
+        "zh": "掌握神秘的魔法力量"
+      },
+      {
+        "en": "Experts in supernatural forces",
+        "zh": "操控超自然力量的专家"
+      },
+      {
+        "en": "Scholars of arcane arts",
+        "zh": "研究神秘学的学者"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC1.png",
+    "order": 1
+  },
+  {
+    "_id": "C2",
+    "iconId": "C2.png",
+    "category": "profession",
+    "name": {
+      "en": "Book",
+      "zh": "书籍"
+    },
+    "represents": {
+      "en": "Knowledge Holder, Scholar",
+      "zh": "知识掌握者、学者"
+    },
+    "roles": [
+      {
+        "en": "Scholar",
+        "zh": "学者"
+      },
+      {
+        "en": "Sage",
+        "zh": "贤者"
+      },
+      {
+        "en": "Librarian",
+        "zh": "图书管理员"
+      },
+      {
+        "en": "Writer",
+        "zh": "作家"
+      },
+      {
+        "en": "Poet",
+        "zh": "诗人"
+      },
+      {
+        "en": "Historian",
+        "zh": "历史学家"
+      },
+      {
+        "en": "Intelligence Analyst",
+        "zh": "情报分析师"
+      },
+      {
+        "en": "Cryptographer",
+        "zh": "密码专家"
+      },
+      {
+        "en": "Recorder",
+        "zh": "记录者"
+      },
+      {
+        "en": "Chronicler",
+        "zh": "编年史家"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Masters of accumulated knowledge",
+        "zh": "积累知识的大师"
+      },
+      {
+        "en": "Seekers of wisdom and information",
+        "zh": "智慧和信息的追求者"
+      },
+      {
+        "en": "Preservers of history and culture",
+        "zh": "历史和文化的保存者"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC2.png",
+    "order": 2
+  },
+  {
+    "_id": "C3",
+    "iconId": "C3.png",
+    "category": "profession",
+    "name": {
+      "en": "Harp",
+      "zh": "竖琴"
+    },
+    "represents": {
+      "en": "Musical Artist, Sound Manipulator",
+      "zh": "音乐艺术家、声音操控者"
+    },
+    "roles": [
+      {
+        "en": "Bard",
+        "zh": "吟游诗人"
+      },
+      {
+        "en": "Musician",
+        "zh": "音乐家"
+      },
+      {
+        "en": "Singer",
+        "zh": "歌手"
+      },
+      {
+        "en": "Sound Mage",
+        "zh": "声音魔法师"
+      },
+      {
+        "en": "Auditory Specialist",
+        "zh": "听觉专家"
+      },
+      {
+        "en": "Eavesdropper",
+        "zh": "窃听者"
+      },
+      {
+        "en": "Sonic Manipulator",
+        "zh": "声波操控师"
+      },
+      {
+        "en": "Hypnotist",
+        "zh": "催眠师"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Harness the power of music and sound",
+        "zh": "利用音乐和声音的力量"
+      },
+      {
+        "en": "Influence emotions through melodies",
+        "zh": "通过旋律影响情绪"
+      },
+      {
+        "en": "Use sound waves for various purposes",
+        "zh": "将声波用于各种目的"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC3.png",
+    "order": 3
+  },
+  {
+    "_id": "C4",
+    "iconId": "C4.png",
+    "category": "profession",
+    "name": {
+      "en": "Crown",
+      "zh": "王冠"
+    },
+    "represents": {
+      "en": "Leader, Ruler",
+      "zh": "领导者、统治者"
+    },
+    "roles": [
+      {
+        "en": "King/Queen",
+        "zh": "国王/女王"
+      },
+      {
+        "en": "Leader",
+        "zh": "领袖"
+      },
+      {
+        "en": "Noble",
+        "zh": "贵族"
+      },
+      {
+        "en": "Commander",
+        "zh": "指挥官"
+      },
+      {
+        "en": "Chief",
+        "zh": "首领"
+      },
+      {
+        "en": "Politician",
+        "zh": "政治家"
+      },
+      {
+        "en": "Diplomat",
+        "zh": "外交官"
+      },
+      {
+        "en": "General",
+        "zh": "统帅"
+      },
+      {
+        "en": "Decision Maker",
+        "zh": "决策者"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Exercise authority and leadership",
+        "zh": "行使权威和领导力"
+      },
+      {
+        "en": "Make important decisions for groups",
+        "zh": "为团体做出重要决策"
+      },
+      {
+        "en": "Represent and guide communities",
+        "zh": "代表和引导社区"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC4.png",
+    "order": 4
+  },
+  {
+    "_id": "C5",
+    "iconId": "C5.png",
+    "category": "profession",
+    "name": {
+      "en": "Sword",
+      "zh": "剑"
+    },
+    "represents": {
+      "en": "Melee Warrior, Guardian",
+      "zh": "近战战士、守护者"
+    },
+    "roles": [
+      {
+        "en": "Knight",
+        "zh": "骑士"
+      },
+      {
+        "en": "Swordsman",
+        "zh": "剑士"
+      },
+      {
+        "en": "Warrior",
+        "zh": "战士"
+      },
+      {
+        "en": "Guard",
+        "zh": "护卫"
+      },
+      {
+        "en": "Duelist",
+        "zh": "决斗者"
+      },
+      {
+        "en": "Samurai",
+        "zh": "武士"
+      },
+      {
+        "en": "Protector",
+        "zh": "守护者"
+      },
+      {
+        "en": "Hero",
+        "zh": "英雄"
+      },
+      {
+        "en": "Adventurer",
+        "zh": "冒险家"
+      },
+      {
+        "en": "Fighter",
+        "zh": "斗士"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Skilled in close combat techniques",
+        "zh": "精通近战技巧"
+      },
+      {
+        "en": "Uphold honor and protection",
+        "zh": "维护荣誉和保护"
+      },
+      {
+        "en": "Serve as frontline defenders",
+        "zh": "作为前线防御者"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC5.png",
+    "order": 5
+  },
+  {
+    "_id": "C6",
+    "iconId": "C6.png",
+    "category": "profession",
+    "name": {
+      "en": "Wrench",
+      "zh": "扳手"
+    },
+    "represents": {
+      "en": "Technical Expert, Maker",
+      "zh": "技术专家、制造者"
+    },
+    "roles": [
+      {
+        "en": "Engineer",
+        "zh": "工程师"
+      },
+      {
+        "en": "Mechanic",
+        "zh": "机械师"
+      },
+      {
+        "en": "Inventor",
+        "zh": "发明家"
+      },
+      {
+        "en": "Repairman",
+        "zh": "修理工"
+      },
+      {
+        "en": "Blacksmith",
+        "zh": "铁匠"
+      },
+      {
+        "en": "Forger",
+        "zh": "锻造师"
+      },
+      {
+        "en": "Architect",
+        "zh": "建筑师"
+      },
+      {
+        "en": "Technician",
+        "zh": "技工"
+      },
+      {
+        "en": "Assembler",
+        "zh": "装配工"
+      },
+      {
+        "en": "Modder",
+        "zh": "改装专家"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Solve practical problems with technical skills",
+        "zh": "用技术技能解决实际问题"
+      },
+      {
+        "en": "Create and repair mechanical devices",
+        "zh": "创造和修复机械装置"
+      },
+      {
+        "en": "Apply scientific knowledge to practical applications",
+        "zh": "将科学知识应用于实际应用"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC6.png",
+    "order": 6
+  },
+  {
+    "_id": "C7",
+    "iconId": "C7.png",
+    "category": "profession",
+    "name": {
+      "en": "Palette",
+      "zh": "调色板"
+    },
+    "represents": {
+      "en": "Artistic Creator, Visual Expert",
+      "zh": "艺术创造者、视觉专家"
+    },
+    "roles": [
+      {
+        "en": "Painter",
+        "zh": "画家"
+      },
+      {
+        "en": "Designer",
+        "zh": "设计师"
+      },
+      {
+        "en": "Illusionist",
+        "zh": "幻术师"
+      },
+      {
+        "en": "Visual Mage",
+        "zh": "视觉魔法师"
+      },
+      {
+        "en": "Photographer",
+        "zh": "摄影师"
+      },
+      {
+        "en": "Hologram Technician",
+        "zh": "全息技术专家"
+      },
+      {
+        "en": "Rune Master",
+        "zh": "符文大师"
+      },
+      {
+        "en": "Disguise Expert",
+        "zh": "伪装专家"
+      },
+      {
+        "en": "Fashion Designer",
+        "zh": "时尚设计师"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Express creativity through visual mediums",
+        "zh": "通过视觉媒介表达创造力"
+      },
+      {
+        "en": "Manipulate appearances and perceptions",
+        "zh": "操控外观和感知"
+      },
+      {
+        "en": "Create beauty or illusions through artistic skills",
+        "zh": "通过艺术技巧创造美或幻象"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC7.png",
+    "order": 7
+  },
+  {
+    "_id": "C8",
+    "iconId": "C8.png",
+    "category": "profession",
+    "name": {
+      "en": "Arrow",
+      "zh": "箭矢"
+    },
+    "represents": {
+      "en": "Ranged Attacker, Precision Shooter",
+      "zh": "远程攻击者、精准射手"
+    },
+    "roles": [
+      {
+        "en": "Archer",
+        "zh": "弓箭手"
+      },
+      {
+        "en": "Sniper",
+        "zh": "狙击手"
+      },
+      {
+        "en": "Hunter",
+        "zh": "猎人"
+      },
+      {
+        "en": "Scout",
+        "zh": "侦察兵"
+      },
+      {
+        "en": "Ranger",
+        "zh": "游侠"
+      },
+      {
+        "en": "Gunner",
+        "zh": "炮手"
+      },
+      {
+        "en": "Dart Expert",
+        "zh": "飞镖专家"
+      },
+      {
+        "en": "Assassin",
+        "zh": "暗杀者"
+      },
+      {
+        "en": "Thrown Weapon Master",
+        "zh": "投掷武器大师"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Excel at long-range precision attacks",
+        "zh": "擅长远程精准攻击"
+      },
+      {
+        "en": "Master various projectile weapons",
+        "zh": "掌握各种投射武器"
+      },
+      {
+        "en": "Combine accuracy with tactical positioning",
+        "zh": "将准确性与战术定位相结合"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC8.png",
+    "order": 8
+  },
+  {
+    "_id": "C9",
+    "iconId": "C9.png",
+    "category": "profession",
+    "name": {
+      "en": "Axe",
+      "zh": "斧头"
+    },
+    "represents": {
+      "en": "Strength Warrior, Destroyer",
+      "zh": "力量战士、破坏者"
+    },
+    "roles": [
+      {
+        "en": "Axe Wielder",
+        "zh": "战斧使用者"
+      },
+      {
+        "en": "Barbarian",
+        "zh": "野蛮人"
+      },
+      {
+        "en": "Lumberjack",
+        "zh": "伐木工"
+      },
+      {
+        "en": "Dwarf Warrior",
+        "zh": "矮人战士"
+      },
+      {
+        "en": "Destroyer",
+        "zh": "破坏者"
+      },
+      {
+        "en": "Siege Trooper",
+        "zh": "攻城兵"
+      },
+      {
+        "en": "Heavy Warrior",
+        "zh": "重装战士"
+      },
+      {
+        "en": "Executioner",
+        "zh": "执行者"
+      },
+      {
+        "en": "Avenger",
+        "zh": "复仇者"
+      }
+    ],
+    "characteristics": [
+      {
+        "en": "Rely on raw power and decisive strikes",
+        "zh": "依靠原始力量和决定性打击"
+      },
+      {
+        "en": "Specialize in breaking through defenses",
+        "zh": "专门突破防御"
+      },
+      {
+        "en": "Combine strength with devastating techniques",
+        "zh": "将力量与毁灭性技术相结合"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsC9.png",
+    "order": 9
+  }
+]

@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
             min-height: 100vh;
             box-sizing: border-box;
             padding-top: 5rem;
@@ -211,7 +212,8 @@
         }
         .icon-image { width: 5rem; height: 5rem; object-fit: contain; flex-shrink: 0; border-radius: 0.25rem; }
         .icon-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .icon-title { font-weight: 700; font-size: 1.125rem; color: var(--text-dark); margin: 0 0 0.25rem 0; }
+        .icon-title { font-weight: 700;
+            display: none; font-size: 1.125rem; color: var(--text-dark); margin: 0 0 0.25rem 0; }
         .icon-desc { font-size: 0.875rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
 
         /* --- Combo Code Display (Styling reused) --- */

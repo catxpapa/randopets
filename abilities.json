@@ -1,0 +1,593 @@
+[
+  {
+    "_id": "A0",
+    "iconId": "A0.png",
+    "category": "ability",
+    "name": {
+      "en": "User's Choice",
+      "zh": "随意"
+    },
+    "represents": {
+      "en": "Define freely",
+      "zh": "自由发挥"
+    },
+    "capabilities": [
+      {
+        "en": "Define this aspect freely based on your ideas",
+        "zh": "根据你的想法自由定义此项"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "This is a placeholder for your own creative ideas",
+        "zh": "这是一个供你发挥创意的占位符"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA0.png",
+    "order": 0
+  },
+  {
+    "_id": "A1",
+    "iconId": "A1.png",
+    "category": "ability",
+    "name": {
+      "en": "Fire",
+      "zh": "火"
+    },
+    "represents": {
+      "en": "Flame, Heat, Burning, Passion",
+      "zh": "火焰、热力、燃烧、热情"
+    },
+    "capabilities": [
+      {
+        "en": "Flame manipulation",
+        "zh": "火焰操控"
+      },
+      {
+        "en": "Heat energy release",
+        "zh": "热能释放"
+      },
+      {
+        "en": "Burning attacks",
+        "zh": "燃烧攻击"
+      },
+      {
+        "en": "Passionate personality trait",
+        "zh": "热情四溢的性格特质"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Force of destruction and creation",
+        "zh": "破坏与创造的力量"
+      },
+      {
+        "en": "Inner passion or motivation",
+        "zh": "内心的热情或激励"
+      },
+      {
+        "en": "Can both warm and burn",
+        "zh": "既能温暖，也能燃烧"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA1.png",
+    "order": 1
+  },
+  {
+    "_id": "A2",
+    "iconId": "A2.png",
+    "category": "ability",
+    "name": {
+      "en": "Water",
+      "zh": "水"
+    },
+    "represents": {
+      "en": "Water, Liquid, Healing, Adaptability",
+      "zh": "水、液体、治愈、适应性"
+    },
+    "capabilities": [
+      {
+        "en": "Water flow control",
+        "zh": "水流控制"
+      },
+      {
+        "en": "Liquid manipulation",
+        "zh": "液体操纵"
+      },
+      {
+        "en": "Healing abilities",
+        "zh": "治疗能力"
+      },
+      {
+        "en": "Emotional stability",
+        "zh": "情绪稳定性"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Takes many forms, both gentle and powerful",
+        "zh": "形态多变，既柔和又强大"
+      },
+      {
+        "en": "Symbolizes healing and flow",
+        "zh": "象征治愈与流动"
+      },
+      {
+        "en": "Represents emotions and adaptability",
+        "zh": "代表情绪和适应力"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA2.png",
+    "order": 2
+  },
+  {
+    "_id": "A3",
+    "iconId": "A3.png",
+    "category": "ability",
+    "name": {
+      "en": "Darkness",
+      "zh": "黑暗"
+    },
+    "represents": {
+      "en": "Shadow, Fear, Mystery, Stealth",
+      "zh": "暗影、恐惧、神秘、隐匿"
+    },
+    "capabilities": [
+      {
+        "en": "Shadow manipulation",
+        "zh": "暗影操控"
+      },
+      {
+        "en": "Fear inducement",
+        "zh": "恐惧制造"
+      },
+      {
+        "en": "Invisibility ability",
+        "zh": "隐身能力"
+      },
+      {
+        "en": "Mysterious aura",
+        "zh": "神秘气质"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Not just hiding and fear, but also the unknown and potential",
+        "zh": "不仅是隐藏和恐惧，也是未知和潜力"
+      },
+      {
+        "en": "Can be seen as a mysterious power",
+        "zh": "可以被视为神秘的力量"
+      },
+      {
+        "en": "Represents deep inner secrets",
+        "zh": "代表内心深处的秘密"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA3.png",
+    "order": 3
+  },
+  {
+    "_id": "A4",
+    "iconId": "A4.png",
+    "category": "ability",
+    "name": {
+      "en": "Wind",
+      "zh": "风"
+    },
+    "represents": {
+      "en": "Airflow, Speed, Freedom, Flexibility",
+      "zh": "气流、速度、自由、灵活性"
+    },
+    "capabilities": [
+      {
+        "en": "Wind control",
+        "zh": "风力控制"
+      },
+      {
+        "en": "High-speed movement",
+        "zh": "高速移动"
+      },
+      {
+        "en": "Flight ability",
+        "zh": "飞行能力"
+      },
+      {
+        "en": "Mental agility",
+        "zh": "思维敏捷"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Symbolizes freedom and change",
+        "zh": "象征自由和变化"
+      },
+      {
+        "en": "Represents speed and intangible power",
+        "zh": "代表速度和无形的力量"
+      },
+      {
+        "en": "Can be understood from physical wind force to abstract agility",
+        "zh": "可以从物理的风力到抽象的灵动性多方面理解"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA4.png",
+    "order": 4
+  },
+  {
+    "_id": "A5",
+    "iconId": "A5.png",
+    "category": "ability",
+    "name": {
+      "en": "Lightning",
+      "zh": "闪电"
+    },
+    "represents": {
+      "en": "Electricity, Energy, Speed, Wisdom",
+      "zh": "电、能量、速度、智慧"
+    },
+    "capabilities": [
+      {
+        "en": "Electric current manipulation",
+        "zh": "电流操控"
+      },
+      {
+        "en": "Energy release",
+        "zh": "能量释放"
+      },
+      {
+        "en": "Rapid reflexes",
+        "zh": "快速反应"
+      },
+      {
+        "en": "Sharp thinking",
+        "zh": "思维敏锐"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Can be an instantaneous burst or a spark of wisdom",
+        "zh": "可以是瞬间的爆发，也可以是智慧的火花"
+      },
+      {
+        "en": "Both a natural phenomenon and symbol of inspiration",
+        "zh": "既是自然现象，也是灵感的象征"
+      },
+      {
+        "en": "Represents energy and quick decision making",
+        "zh": "代表能量和快速决策"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA5.png",
+    "order": 5
+  },
+  {
+    "_id": "A6",
+    "iconId": "A6.png",
+    "category": "ability",
+    "name": {
+      "en": "Nature",
+      "zh": "自然"
+    },
+    "represents": {
+      "en": "Plants, Growth, Healing, Harmony",
+      "zh": "植物、生长、治愈、和谐"
+    },
+    "capabilities": [
+      {
+        "en": "Plant control",
+        "zh": "植物控制"
+      },
+      {
+        "en": "Life manipulation",
+        "zh": "生命操纵"
+      },
+      {
+        "en": "Environmental adaptation",
+        "zh": "环境适应"
+      },
+      {
+        "en": "Natural harmony",
+        "zh": "自然和谐"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Not just plants, but also a symbol of vitality and harmony",
+        "zh": "不仅是植物，也是生命力和和谐的象征"
+      },
+      {
+        "en": "Inspiration from ecology, healing, and life cycles",
+        "zh": "从生态、治愈到生命循环的灵感"
+      },
+      {
+        "en": "Represents balance and sustainable growth",
+        "zh": "代表平衡和可持续发展"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA6.png",
+    "order": 6
+  },
+  {
+    "_id": "A7",
+    "iconId": "A7.png",
+    "category": "ability",
+    "name": {
+      "en": "Magic",
+      "zh": "魔法"
+    },
+    "represents": {
+      "en": "Mystical Power, Spells, Change, Miracles",
+      "zh": "神秘力量、咒语、变化、奇迹"
+    },
+    "capabilities": [
+      {
+        "en": "Spell casting",
+        "zh": "咒语施放"
+      },
+      {
+        "en": "Elemental manipulation",
+        "zh": "元素操控"
+      },
+      {
+        "en": "Reality warping",
+        "zh": "现实扭曲"
+      },
+      {
+        "en": "Arcane knowledge",
+        "zh": "神秘知识"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Symbolizes infinite possibilities",
+        "zh": "象征无限可能"
+      },
+      {
+        "en": "Can be specific spells, miracles, or unknown forces",
+        "zh": "可以是具体的法术、奇迹或未知力量"
+      },
+      {
+        "en": "Encourages bold innovation beyond conventions",
+        "zh": "鼓励突破常规的大胆创新"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA7.png",
+    "order": 7
+  },
+  {
+    "_id": "A8",
+    "iconId": "A8.png",
+    "category": "ability",
+    "name": {
+      "en": "Connection",
+      "zh": "连接"
+    },
+    "represents": {
+      "en": "Network, Relationships, Communication, Teamwork",
+      "zh": "网络、关系、沟通、团队"
+    },
+    "capabilities": [
+      {
+        "en": "Telepathy",
+        "zh": "心灵感应"
+      },
+      {
+        "en": "Relationship building",
+        "zh": "关系构建"
+      },
+      {
+        "en": "Information transmission",
+        "zh": "信息传递"
+      },
+      {
+        "en": "Team collaboration",
+        "zh": "团队协作"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Can be the bond between people",
+        "zh": "可以是人与人之间的纽带"
+      },
+      {
+        "en": "Represents flow of information or energy transfer",
+        "zh": "代表信息流动或能量传递"
+      },
+      {
+        "en": "Can be understood from social, mental, or technological network perspectives",
+        "zh": "可以从社交、心灵或科技网络角度理解"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA8.png",
+    "order": 8
+  },
+  {
+    "_id": "A9",
+    "iconId": "A9.png",
+    "category": "ability",
+    "name": {
+      "en": "Technology",
+      "zh": "科技"
+    },
+    "represents": {
+      "en": "Machinery, Invention, Intelligence, Progress",
+      "zh": "机械、发明、智能、进步"
+    },
+    "capabilities": [
+      {
+        "en": "Mechanical manipulation",
+        "zh": "机械操控"
+      },
+      {
+        "en": "Device creation",
+        "zh": "设备创造"
+      },
+      {
+        "en": "System hacking",
+        "zh": "系统黑客"
+      },
+      {
+        "en": "Technological understanding",
+        "zh": "技术理解"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Represents innovation and progress",
+        "zh": "代表创新和进步"
+      },
+      {
+        "en": "Imagination of the future",
+        "zh": "对未来的想象"
+      },
+      {
+        "en": "Various abilities from mechanical devices to intelligent consciousness",
+        "zh": "从机械装置到智能意识的各种能力"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA9.png",
+    "order": 9
+  },
+  {
+    "_id": "A10",
+    "iconId": "A10.png",
+    "category": "ability",
+    "name": {
+      "en": "Crystal",
+      "zh": "水晶"
+    },
+    "represents": {
+      "en": "Purity, Energy Storage, Protection, Value",
+      "zh": "纯净、能量储存、防护、价值"
+    },
+    "capabilities": [
+      {
+        "en": "Energy focusing",
+        "zh": "能量聚焦"
+      },
+      {
+        "en": "Protective barriers",
+        "zh": "防护屏障"
+      },
+      {
+        "en": "Light refraction",
+        "zh": "光线折射"
+      },
+      {
+        "en": "Value storage",
+        "zh": "价值储存"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Symbolizes purity and solidity",
+        "zh": "象征纯净与坚固"
+      },
+      {
+        "en": "Can be a carrier of energy",
+        "zh": "可以是能量的载体"
+      },
+      {
+        "en": "Guardian of secrets",
+        "zh": "秘密的守护者"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA10.png",
+    "order": 10
+  },
+  {
+    "_id": "A11",
+    "iconId": "A11.png",
+    "category": "ability",
+    "name": {
+      "en": "Heart",
+      "zh": "心"
+    },
+    "represents": {
+      "en": "Emotion, Love, Empathy, Healing",
+      "zh": "情感、爱、同理心、治愈"
+    },
+    "capabilities": [
+      {
+        "en": "Emotion sensing",
+        "zh": "情感感知"
+      },
+      {
+        "en": "Power of love",
+        "zh": "爱的力量"
+      },
+      {
+        "en": "Spiritual healing",
+        "zh": "心灵治愈"
+      },
+      {
+        "en": "Emotional influence",
+        "zh": "情绪影响"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Not only a symbol of emotion but also a source of strength",
+        "zh": "不仅是情感的象征，也是力量的源泉"
+      },
+      {
+        "en": "Represents healing and compassion",
+        "zh": "代表治愈和同情"
+      },
+      {
+        "en": "Inspiration from emotional influence to spiritual power",
+        "zh": "从情绪影响到精神力量的灵感"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA11.png",
+    "order": 11
+  },
+  {
+    "_id": "A12",
+    "iconId": "A12.png",
+    "category": "ability",
+    "name": {
+      "en": "Space",
+      "zh": "空间"
+    },
+    "represents": {
+      "en": "Universe, Spacetime, Infinity, Exploration",
+      "zh": "宇宙、时空、无限、探索"
+    },
+    "capabilities": [
+      {
+        "en": "Spatial manipulation",
+        "zh": "空间操控"
+      },
+      {
+        "en": "Teleportation ability",
+        "zh": "传送能力"
+      },
+      {
+        "en": "Gravity control",
+        "zh": "引力控制"
+      },
+      {
+        "en": "Cosmic perspective",
+        "zh": "宇宙视野"
+      }
+    ],
+    "interpretations": [
+      {
+        "en": "Represents infinity and the unknown",
+        "zh": "代表无限和未知"
+      },
+      {
+        "en": "Symbolizes time and dimensions",
+        "zh": "象征时间和维度"
+      },
+      {
+        "en": "Various possibilities of space to create unique abilities",
+        "zh": "空间的各种可能性，创造独特能力"
+      }
+    ],
+    "imageUrl": "https://cdn.jsdelivr.net/gh/catxpapa/randopets/randopetsA12.png",
+    "order": 12
+  }
+]
